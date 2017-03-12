@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yuxh.blog.dao.BlogInfoDao">
+  <resultMap id="BaseResultMap" type="com.yuxh.blog.model.BlogInfo">
+    <id column="blog_id" jdbcType="VARCHAR" property="blogId" />
+    <result column="blog_title" jdbcType="VARCHAR" property="blogTitle" />
+    <result column="blog_content" jdbcType="VARCHAR" property="blogContent" />
+    <result column="blog_author" jdbcType="VARCHAR" property="blogAuthor" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="type_id" jdbcType="VARCHAR" property="typeId" />
+    <result column="lable_id" jdbcType="VARCHAR" property="lableId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    blog_id, blog_title, blog_content, blog_author, create_date, type_id, lable_id
+  </sql>
+  <select id="getById" parameterType="java.lang.String" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List" />
+  from blog_info
+  where blog_id = #{blogId,jdbcType=VARCHAR}
+</select>
+  <select id="findAllBlogs" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from blog_info
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_info
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.yuxh.blog.model.BlogInfo">
+    insert into blog_info (blog_id, blog_title, blog_content,
+      blog_author, create_date, type_id,
+      lable_id)
+    values (#{blogId,jdbcType=VARCHAR}, #{blogTitle,jdbcType=VARCHAR}, #{blogContent,jdbcType=VARCHAR},
+      #{blogAuthor,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{typeId,jdbcType=VARCHAR},
+      #{lableId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yuxh.blog.model.BlogInfo">
+    insert into blog_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        blog_id,
+      </if>
+      <if test="blogTitle != null">
+        blog_title,
+      </if>
+      <if test="blogContent != null">
+        blog_content,
+      </if>
+      <if test="blogAuthor != null">
+        blog_author,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="typeId != null">
+        type_id,
+      </if>
+      <if test="lableId != null">
+        lable_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="blogId != null">
+        #{blogId,jdbcType=VARCHAR},
+      </if>
+      <if test="blogTitle != null">
+        #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null">
+        #{blogContent,jdbcType=VARCHAR},
+      </if>
+      <if test="blogAuthor != null">
+        #{blogAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="typeId != null">
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="lableId != null">
+        #{lableId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yuxh.blog.model.BlogInfo">
+    update blog_info
+    <set>
+      <if test="blogTitle != null">
+        blog_title = #{blogTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="blogContent != null">
+        blog_content = #{blogContent,jdbcType=VARCHAR},
+      </if>
+      <if test="blogAuthor != null">
+        blog_author = #{blogAuthor,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="typeId != null">
+        type_id = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="lableId != null">
+        lable_id = #{lableId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yuxh.blog.model.BlogInfo">
+    update blog_info
+    set blog_title = #{blogTitle,jdbcType=VARCHAR},
+      blog_content = #{blogContent,jdbcType=VARCHAR},
+      blog_author = #{blogAuthor,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      type_id = #{typeId,jdbcType=VARCHAR},
+      lable_id = #{lableId,jdbcType=VARCHAR}
+    where blog_id = #{blogId,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -10,7 +10,25 @@ public class BlogVo {
     private String type;
     private String blogAbstract;
     private String context;
+    private String blogAuthor;
+    private String blogCover;
     private int pageNumber;
+
+    public String getBlogCover() {
+        return blogCover;
+    }
+
+    public void setBlogCover(String blogCover) {
+        this.blogCover = blogCover;
+    }
+
+    public String getBlogAuthor() {
+        return blogAuthor;
+    }
+
+    public void setBlogAuthor(String blogAuthor) {
+        this.blogAuthor = blogAuthor;
+    }
 
     public int getPageNumber() {
         return pageNumber;

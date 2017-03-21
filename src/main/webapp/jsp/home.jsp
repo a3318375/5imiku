@@ -30,7 +30,7 @@
                 <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
             </a>
             <!-- 不落阁 -->
-            <a class="blog-logo" href="home.jsp">爱纷飞</a>
+            <a class="blog-logo" href="/">爱纷飞</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                 <li class="layui-nav-item layui-this">
@@ -39,12 +39,12 @@
                 <li class="layui-nav-item">
                     <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
                 </li>
-                <li class="layui-nav-item">
+<%--                <li class="layui-nav-item">
                     <a href="/zy"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="/dddd"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
-                </li>
+                </li>--%>
                 <li class="layui-nav-item">
                     <a href="/abount"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
@@ -89,7 +89,7 @@
                 <div class="blog-main-right">
                     <div class="blogerinfo shadow">
                         <div class="blogerinfo-figure">
-                            <img src="../images/Absolutely.jpg" alt="Absolutely" />
+                            <img src="${pageContext.request.contextPath}/resources/img/tx.png" alt="Absolutely" />
                         </div>
                         <p class="blogerinfo-nickname">小皓</p>
                         <p class="blogerinfo-introduce">90后java开发工程师</p>

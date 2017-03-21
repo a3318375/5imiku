@@ -40,12 +40,12 @@
                 <li class="layui-nav-item">
                     <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
                 </li>
-                <li class="layui-nav-item">
+<%--                <li class="layui-nav-item">
                     <a href="/zy"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
                 </li>
                 <li class="layui-nav-item">
                     <a href="/dddd"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
-                </li>
+                </li>--%>
                 <li class="layui-nav-item">
                     <a href="/abount"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>

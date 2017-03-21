@@ -35,9 +35,10 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         BlogInfo blogInfo = new BlogInfo();
         String uuid = UUIDUtils.getUUID36();
         blogInfo.setBlogId(uuid);
-        blogInfo.setBlogAuthor("瑶瑶");
+        blogInfo.setBlogAuthor(blogVo.getBlogAuthor());
         blogInfo.setBlogTitle(blogVo.getName());
-        blogInfo.setTypeId("1");
+        blogInfo.setTypeId(blogVo.getType());
+        blogInfo.setBlogCover(blogVo.getBlogCover());
         blogInfo.setCreateDate(new Date());
         blogInfo.setBlogAbstract(blogVo.getBlogAbstract());
         String path="D:/code/ideaproject/5imiku/src/main/webapp/upload/" + uuid + ".htm";

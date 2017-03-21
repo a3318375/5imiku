@@ -1,5 +1,8 @@
 package com.yuxh.blog.controller;
 
+import com.yuxh.blog.util.DateUtils;
+import com.yuxh.blog.util.ResultUtils;
+import com.yuxh.blog.util.UUIDUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -31,4 +34,24 @@ public class DownloadController {
         return request.getContextPath()+"/upload/"+file.getOriginalFilename();
     }
 
+
+    @RequestMapping(value = "/cover",method= RequestMethod.POST)
+    @ResponseBody
+    public String  cover(@RequestParam("myFileName") CommonsMultipartFile file, HttpServletRequest request) throws IOException {
+        String uuid = UUIDUtils.getUUID36();
+        String filename = uuid + file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
+        String date  = DateUtils.get8Date();
+        String path="C:/code/workspace/5imiku/build/libs/exploded/5imiku-1.0-SNAPSHOT.war/upload/cover/" + date + "/" ;
+        String name = path + filename;
+
+        File filedir = new File(path);
+        if(!filedir.exists()){
+            filedir.mkdirs();
+        }
+        filedir = new File(name);
+        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+        file.transferTo(filedir);
+        String str = ResultUtils.getUploadResult("/upload/cover/" + date + "/" + filename,uuid);
+        return str;
+    }
 }

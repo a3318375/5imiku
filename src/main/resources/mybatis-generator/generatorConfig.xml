@@ -1,35 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE generatorConfiguration
-  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
 <generatorConfiguration>
-    <!--数据库驱动-->
-    <classPathEntry location="D:/Program Files/Java/repo/mysql/mysql-connector-java/5.1.30/mysql-connector-java-5.1.30.jar"/>
-    <context id="DB2Tables"    targetRuntime="MyBatis3">
-        <commentGenerator>
-            <property name="suppressDate" value="true"/>
-            <property name="suppressAllComments" value="true"/>
-        </commentGenerator>
-        <!--数据库链接地址账号密码-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/myblog" userId="root" password="root">
+    <classPathEntry location="${jarDirection}"/>
+
+    <context id="mysql" targetRuntime="MyBatis3">
+        <jdbcConnection driverClass="${driverClass}"
+                        connectionURL="${connectionURL}"
+                        userId="${userId}"
+                        password="${password}">
         </jdbcConnection>
-        <javaTypeResolver>
-            <property name="forceBigDecimals" value="false"/>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-        <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.yuxh.blog.model" targetProject="src/main/java">
-            <property name="enableSubPackages" value="true"/>
-            <property name="trimStrings" value="true"/>
+
+        <javaModelGenerator
+                targetPackage="${modelPackage}"
+                targetProject="${src_main_java}">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
         </javaModelGenerator>
-        <!--生成映射文件存放位置-->
-        <sqlMapGenerator targetPackage="com.yuxh.blog.mapping" targetProject="src/main/resources">
-            <property name="enableSubPackages" value="true"/>
+
+        <sqlMapGenerator
+                targetPackage="${sqlMapperPackage}"
+                targetProject="${src_main_resources}">
+            <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
-        <!--生成Dao类存放位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.yuxh.blog.dao" targetProject="src/main/java">
-            <property name="enableSubPackages" value="true"/>
+
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="${mapperPackage}"
+                             targetProject="${src_main_java}">
+            <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
-        <!--生成对应表及类名-->
-        <table tableName="blog_info" domainObjectName="BlogInfo" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+        <!-- 每一个数据库表都需要建立一个对应的table字段 -->
+        <table schema="general" tableName="type_info" domainObjectName="TypeInfo"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false" >
+            <!-- <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="ID" sqlStatement="DB2" identity="true" />
+            <columnOverride column="DATE_FIELD" property="startDate" />
+            <ignoreColumn column="FRED" />
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" /> -->
+        </table>
+
     </context>
 </generatorConfiguration>

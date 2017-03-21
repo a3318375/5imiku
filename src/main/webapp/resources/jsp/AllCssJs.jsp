@@ -22,7 +22,7 @@
 <link href="<%=basePath%>/resources/bootstrap/skins/color.css" rel="stylesheet">
 <style type="text/css">
     html {
-        background: url(<%=basePath%>/resources/img/bg.jpg) no-repeat center center fixed;
+        background: url(<%=basePath%>/resources/img/bg1.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -38,6 +38,11 @@
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+    .cbg{
+        background-color:#000000;
+        opacity: 0.0;
+        padding-top: 120px;
     }
     .cco{
         color: #dd4814;

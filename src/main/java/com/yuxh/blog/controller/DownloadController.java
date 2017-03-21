@@ -21,7 +21,7 @@ public class DownloadController {
     public String  fileUpload2(@RequestParam("myFileName") CommonsMultipartFile file, HttpServletRequest request) throws IOException {
         long  startTime=System.currentTimeMillis();
         System.out.println("fileName："+file.getOriginalFilename());
-        String path="D:/ideaproject/myblog/target/myblog/upload/" + file.getOriginalFilename();
+        String path="D:/code/ideaproject/5imiku/src/main/webapp/upload/" + file.getOriginalFilename();
         File newFile1=new File(path);
         //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
         file.transferTo(newFile1);

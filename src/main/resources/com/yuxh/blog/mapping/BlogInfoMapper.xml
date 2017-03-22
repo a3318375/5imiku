@@ -17,6 +17,11 @@
     <result column="blog_url" property="blogUrl" jdbcType="VARCHAR" />
     <result column="blog_cover" property="blogCover" jdbcType="VARCHAR" />
   </resultMap>
+
+  <resultMap id="findBlogsResultMap" type="com.yuxh.blog.model.BlogInfo" extends="BaseResultMap">
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="page_view_count" property="pageViewCount" jdbcType="INTEGER" />
+  </resultMap>
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbggenerated
@@ -42,12 +47,12 @@
     <include refid="Base_Column_List" />
     from blog_info
   </select>
-  <select id="findBlogs" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-    from blog_info
+  <select id="findBlogs" parameterType="java.lang.String" resultMap="findBlogsResultMap">
+    select b.*,ifnull(p.page_view_count,0) as page_view_count,t.type_name
+    FROM blog_info b LEFT JOIN (select blog_id,COUNT(blog_id) as page_view_count from page_view GROUP BY blog_id) p ON b.blog_id = p.blog_id,type_info t
+    where b.type_id = t.type_id
     <if test="typeId != null" >
-      type_id = #{typeId,jdbcType=VARCHAR},
+      and b.type_id = #{typeId,jdbcType=VARCHAR},
     </if>
   </select>
   <delete id="delete" parameterType="java.lang.String" >

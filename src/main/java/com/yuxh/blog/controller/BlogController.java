@@ -43,9 +43,16 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/{type}",  produces = "text/html")
-    public String details1(BlogVo blogVo, Model uiModel){
+    public String type(BlogVo blogVo, Model uiModel){
         PageInfo<BlogInfo> page = blogInfoService.findBlogs(blogVo);
         uiModel.addAttribute("page",page);
         return "blog";
+    }
+
+    @RequestMapping(value = "/details/{blogId}",  produces = "text/html")
+    public String details(BlogVo blogVo,Model uiModel){
+        BlogInfo blogInfo = blogInfoService.getById(blogVo);
+        uiModel.addAttribute("blogInfo",blogInfo);
+        return "detail";
     }
 }

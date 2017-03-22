@@ -236,14 +236,14 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
                     var code = '<div class="article shadow"><div class="article-left">' +
                         '<img src="' + item.blogCover +'" alt="基于laypage的layui扩展模块（pagesize.js）！" />' +
                         '</div><div class="article-right"><div class="article-title">' +
-                        '<a href="detail.html">' +item.blogTitle+ '</a></div><div class="article-abstract">' +
+                        '<a href="/blog/details/'+ item.blogId +'">' +item.blogTitle+ '</a></div><div class="article-abstract">' +
                          item.blogAbstract+ '</div></div><div class="clear"></div>' +
                         '<div class="article-footer"><span><i class="fa fa-clock-o">' +
                         '</i>&nbsp;&nbsp;' + getSmpFormatDateByLong(item.createDate,true) +
                         '</span><span class="article-author"><i class="fa fa-user">' +
                         '</i>&nbsp;&nbsp;' +item.blogAuthor+ '</span><span><i class="fa fa-tag">' +
-                        '</i>&nbsp;&nbsp;<a href="#">' + item.lableName + '</a></span>' +
-                        '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;0</span>' +
+                        '</i>&nbsp;&nbsp;<a href="#">' + item.typeName + '</a></span>' +
+                        '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + item.pageViewCount + '</span>' +
                         '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;0</span>' +
                         '</div></div>';
                     lis.push(code);

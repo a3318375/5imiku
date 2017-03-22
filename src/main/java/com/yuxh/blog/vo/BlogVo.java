@@ -12,7 +12,16 @@ public class BlogVo {
     private String context;
     private String blogAuthor;
     private String blogCover;
+    private String ip;
     private int pageNumber;
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
     public String getBlogCover() {
         return blogCover;

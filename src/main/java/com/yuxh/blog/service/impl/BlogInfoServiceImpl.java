@@ -8,6 +8,7 @@ import com.yuxh.blog.model.PageView;
 import com.yuxh.blog.service.BlogInfoService;
 import com.yuxh.blog.service.PageViewService;
 import com.yuxh.blog.util.DateUtils;
+import com.yuxh.blog.util.Toolkits;
 import com.yuxh.blog.util.UUIDUtils;
 import com.yuxh.blog.vo.BlogVo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +46,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         blogInfo.setCreateDate(new Date());
         blogInfo.setBlogAbstract(blogVo.getBlogAbstract());
         String date  = DateUtils.get8Date();
-        String path="C:/code/workspace/5imiku/build/libs/exploded/5imiku-1.0-SNAPSHOT.war/upload/htm/"+ date + "/";
+        String path = Toolkits.getPath() + "htm/"+ date + "/";
         String filename = uuid + ".jsp";
         blogInfo.setBlogUrl("/upload/htm/"+ date + "/" + uuid + ".jsp");
         File file = new File(path);

@@ -2,6 +2,7 @@ package com.yuxh.blog.controller;
 
 import com.yuxh.blog.util.DateUtils;
 import com.yuxh.blog.util.ResultUtils;
+import com.yuxh.blog.util.Toolkits;
 import com.yuxh.blog.util.UUIDUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -41,7 +42,7 @@ public class DownloadController {
         String uuid = UUIDUtils.getUUID36();
         String filename = uuid + file.getOriginalFilename().substring(file.getOriginalFilename().indexOf("."));
         String date  = DateUtils.get8Date();
-        String path="C:/code/workspace/5imiku/build/libs/exploded/5imiku-1.0-SNAPSHOT.war/upload/cover/" + date + "/" ;
+        String path = Toolkits.getPath() + "cover/" + date + "/" ;
         String name = path + filename;
 
         File filedir = new File(path);

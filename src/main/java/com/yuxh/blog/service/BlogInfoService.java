@@ -15,4 +15,8 @@ public interface BlogInfoService {
     BlogInfo getById(BlogVo blogVo);
 
     PageInfo<BlogInfo> findBlogs(BlogVo blogVo);
+
+    List<BlogInfo> getAboutBlog(String lableName);
+
+    List<BlogInfo> getCasualBlog(String typeId);
 }

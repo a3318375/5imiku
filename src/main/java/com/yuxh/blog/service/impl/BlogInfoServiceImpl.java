@@ -89,4 +89,14 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         return page;
     }
 
+    @Override
+    public List<BlogInfo> getAboutBlog(String lableName) {
+        return blogInfoDao.getAboutBlog(lableName);
+    }
+
+    @Override
+    public List<BlogInfo> getCasualBlog(String typeId) {
+        return blogInfoDao.getCasualBlog(typeId);
+    }
+
 }

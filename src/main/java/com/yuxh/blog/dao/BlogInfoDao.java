@@ -14,4 +14,8 @@ public interface BlogInfoDao {
     BlogInfo getById(String blogId);
 
     List<BlogInfo> findBlogs(@Param("typeId") String type);
+
+    List<BlogInfo> getCasualBlog(String typeId);
+
+    List<BlogInfo> getAboutBlog(String lableName);
 }

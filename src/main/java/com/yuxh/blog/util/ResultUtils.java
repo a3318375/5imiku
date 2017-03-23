@@ -2,6 +2,7 @@ package com.yuxh.blog.util;
 
 
 import com.alibaba.fastjson.JSONObject;
+import com.yuxh.blog.model.CommentInfo;
 
 /**
  * Created by yuxh on 2017/3/21.
@@ -15,4 +16,5 @@ public class ResultUtils {
         jsonObject.put("url", name);
         return jsonObject.toJSONString();
     }
+
 }

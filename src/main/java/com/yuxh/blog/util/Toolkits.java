@@ -6,9 +6,10 @@ package com.yuxh.blog.util;
 public class Toolkits {
 
     public static String getPath(){
-        String path = UUIDUtils.class.getResource("/").toString();
-        path = path.substring(0,path.indexOf("classes/main"));
-        path = path + "libs/exploded/5imiku-1.0-SNAPSHOT.war/upload/";
+        String path = UUIDUtils.class.getResource("/").getPath();
+        path = path.substring(0,path.indexOf("WEB-INF"));
+        //path = path + "libs/exploded/5imiku-1.0-SNAPSHOT.war/upload/";
+        path = path + "upload/";
         return path;
     }
 }

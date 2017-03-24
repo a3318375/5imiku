@@ -25,14 +25,19 @@ public class DownloadController {
     public String  fileUpload2(@RequestParam("myFileName") CommonsMultipartFile file, HttpServletRequest request) throws IOException {
         long  startTime=System.currentTimeMillis();
         System.out.println("fileName："+file.getOriginalFilename());
-        String path="D:/code/ideaproject/5imiku/src/main/webapp/upload/" + file.getOriginalFilename();
+        String date  = DateUtils.get8Date();
+        String path = Toolkits.getPath() + "htm/"+ date + "/htm/";
         File newFile1=new File(path);
+        if(!newFile1.exists()){
+            newFile1.mkdirs();
+        }
+        newFile1=new File(path + file.getOriginalFilename());
         //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
         file.transferTo(newFile1);
 
         long  endTime=System.currentTimeMillis();
         System.out.println("方法二的运行时间："+String.valueOf(endTime-startTime)+"ms");
-        return request.getContextPath()+"/upload/"+file.getOriginalFilename();
+        return  "/upload/htm/"+ date + "/htm/" + file.getOriginalFilename();
     }
 
 
@@ -44,14 +49,17 @@ public class DownloadController {
         String date  = DateUtils.get8Date();
         String path = Toolkits.getPath() + "cover/" + date + "/" ;
         String name = path + filename;
-
-        File filedir = new File(path);
-        if(!filedir.exists()){
-            filedir.mkdirs();
+        System.out.print(name);
+        try{
+            File filedir = new File(path,filename);
+            if(!filedir.exists()){
+                filedir.mkdirs();
+            }
+            //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
+            file.transferTo(filedir);
+        }catch (Exception e){
+            e.printStackTrace();
         }
-        filedir = new File(name);
-        //通过CommonsMultipartFile的方法直接写文件（注意这个时候）
-        file.transferTo(filedir);
         String str = ResultUtils.getUploadResult("/upload/cover/" + date + "/" + filename,uuid);
         return str;
     }

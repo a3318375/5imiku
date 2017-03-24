@@ -46,9 +46,9 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         blogInfo.setCreateDate(new Date());
         blogInfo.setBlogAbstract(blogVo.getBlogAbstract());
         String date  = DateUtils.get8Date();
-        String path = Toolkits.getPath() + "htm/"+ date + "/";
+        String path = Toolkits.getPath() + "htm/"+ date + "/htm/";
         String filename = uuid + ".jsp";
-        blogInfo.setBlogUrl("/upload/htm/"+ date + "/" + uuid + ".jsp");
+        blogInfo.setBlogUrl("/upload/htm/"+ date + "/htm/" + uuid + ".jsp");
         File file = new File(path);
         if(!file.exists()){
             file.mkdirs();

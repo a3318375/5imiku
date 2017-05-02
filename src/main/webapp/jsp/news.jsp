@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-md-12 column pd">
-        Copyright © 2013-2016    <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
-        <strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved. 备案号：闽ICP备15012807号-1
+        <!--Copyright © 2013-2016    <strong><a href="http://www.runoob.com/" target="_blank">菜鸟教程</a></strong>&nbsp;
+        <strong><a href="http://www.runoob.com/" target="_blank">runoob.com</a></strong> All Rights Reserved.--> 备案号：京ICP备17021290号-1
     </div>
 </div>

@@ -10,8 +10,6 @@ public interface BlogInfoService {
 
 	List<BlogInfo> findAllBlogs();
 
-    void details(BlogVo blogVo);
-
     BlogInfo getById(BlogVo blogVo);
 
     PageInfo<BlogInfo> findBlogs(BlogVo blogVo);

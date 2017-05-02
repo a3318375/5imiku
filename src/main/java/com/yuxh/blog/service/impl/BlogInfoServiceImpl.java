@@ -34,47 +34,6 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     }
 
     @Override
-    public void details(BlogVo blogVo) {
-        BlogInfo blogInfo = new BlogInfo();
-        String uuid = UUIDUtils.getUUID36();
-        savePageView(uuid,blogVo.getIp());
-        blogInfo.setBlogId(uuid);
-        blogInfo.setBlogAuthor(blogVo.getBlogAuthor());
-        blogInfo.setBlogTitle(blogVo.getName());
-        blogInfo.setTypeId(blogVo.getType());
-        blogInfo.setBlogCover(blogVo.getBlogCover());
-        blogInfo.setCreateDate(new Date());
-        blogInfo.setBlogAbstract(blogVo.getBlogAbstract());
-        String date  = DateUtils.get8Date();
-        String path = Toolkits.getPath() + "htm/"+ date + "/htm/";
-        String filename = uuid + ".jsp";
-        blogInfo.setBlogUrl("/upload/htm/"+ date + "/htm/" + uuid + ".jsp");
-        File file = new File(path);
-        if(!file.exists()){
-            file.mkdirs();
-        }
-        file = new File(path + filename);
-        FileWriter fw = null;
-        try {
-            OutputStreamWriter writerStream = new OutputStreamWriter(new FileOutputStream(file),"UTF-8");
-            BufferedWriter bw = new BufferedWriter(writerStream);
-            bw.write("<%@ page language=\"java\" contentType=\"text/html; charset=UTF-8\" pageEncoding=\"UTF-8\"%>" + blogVo.getContext());
-            bw.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        blogInfoDao.insert(blogInfo);
-    }
-
-    private void savePageView(String blogId,String ip) {
-        PageView pageView = new PageView();
-        pageView.setBlogId(blogId);
-        pageView.setPageViewDate(new Date());
-        pageView.setViewIp(ip);
-        pageViewService.save(pageView);
-    }
-
-    @Override
     public BlogInfo getById(BlogVo blogVo) {
         BlogInfo blogInfo = blogInfoDao.getById(blogVo.getBlogId());
         return blogInfo;

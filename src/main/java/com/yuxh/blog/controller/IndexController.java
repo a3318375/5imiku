@@ -29,14 +29,6 @@ public class IndexController {
 		return "home";
 	}
 
-	@RequestMapping("details")
-	public String details(BlogVo blogVo,HttpServletRequest request){
-		String ip = getIpAddr(request);
-		blogVo.setIp(ip);
-		blogInfoService.details(blogVo);
-		return "redirect:/";
-	}
-
 	@RequestMapping(value = "/{blogId}",  produces = "text/html")
 	public String details1(BlogVo blogVo,Model uiModel){
 		BlogInfo blogInfo = blogInfoService.getById(blogVo);

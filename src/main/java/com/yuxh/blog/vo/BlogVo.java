@@ -5,7 +5,8 @@ package com.yuxh.blog.vo;
  */
 public class BlogVo {
 
-    private String blogId;
+    private Integer blogId;
+    private String blogUuid;
     private String name;
     private String type;
     private String blogAbstract;
@@ -64,12 +65,20 @@ public class BlogVo {
         this.blogAbstract = blogAbstract;
     }
 
-    public String getBlogId() {
+    public Integer getBlogId() {
         return blogId;
     }
 
-    public void setBlogId(String blogId) {
+    public void setBlogId(Integer blogId) {
         this.blogId = blogId;
+    }
+
+    public String getBlogUuid() {
+        return blogUuid;
+    }
+
+    public void setBlogUuid(String blogUuid) {
+        this.blogUuid = blogUuid;
     }
 
     public String getName() {

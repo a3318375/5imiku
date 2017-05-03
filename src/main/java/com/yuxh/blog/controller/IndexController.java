@@ -24,8 +24,8 @@ public class IndexController {
 
 	@RequestMapping()
 	public String index(BlogVo blogVo,Model uiModel){
-		PageInfo<BlogInfo> page = blogInfoService.findBlogs(blogVo);
-		uiModel.addAttribute("page",page);
+		List<BlogInfo> rlist = blogInfoService.findRecommendBlogs();
+		uiModel.addAttribute("rlist",rlist);
 		return "home";
 	}
 

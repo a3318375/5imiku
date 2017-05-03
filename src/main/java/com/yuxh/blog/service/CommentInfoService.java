@@ -11,7 +11,7 @@ import java.util.List;
  */
 public interface CommentInfoService {
 
-    List<CommentInfo> getByBlogId(String blogId);
+    List<CommentInfo> getByBlogId(Integer blogId);
 
     CommentInfo saveComment(BlogVo blogVo);
 

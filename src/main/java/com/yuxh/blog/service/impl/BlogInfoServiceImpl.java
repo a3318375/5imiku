@@ -35,13 +35,12 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 
     @Override
     public BlogInfo getById(BlogVo blogVo) {
-        BlogInfo blogInfo = blogInfoDao.getById(blogVo.getBlogId());
+        BlogInfo blogInfo = blogInfoDao.selectByPrimaryKey(blogVo.getBlogId());
         return blogInfo;
     }
 
     @Override
     public PageInfo<BlogInfo> findBlogs(BlogVo blogVo) {
-
         PageHelper.startPage(blogVo.getPageNumber(), 5);
         List<BlogInfo> list = blogInfoDao.findBlogs(blogVo.getType());
         PageInfo<BlogInfo> page = new PageInfo<>(list, 5);
@@ -54,8 +53,18 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     }
 
     @Override
-    public List<BlogInfo> getCasualBlog(String typeId) {
+    public List<BlogInfo> getCasualBlog(Integer typeId) {
         return blogInfoDao.getCasualBlog(typeId);
+    }
+
+    @Override
+    public List<BlogInfo> findTopBlogs() {
+        return blogInfoDao.findTopBlogs();
+    }
+
+    @Override
+    public List<BlogInfo> findRecommendBlogs() {
+        return blogInfoDao.findRecommendBlogs();
     }
 
 }

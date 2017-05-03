@@ -22,7 +22,7 @@ public class CommentInfoServiceImpl implements CommentInfoService {
     private CommentInfoDao commentInfoDao;
 
     @Override
-    public List<CommentInfo> getByBlogId(String blogId) {
+    public List<CommentInfo> getByBlogId(Integer blogId) {
         return commentInfoDao.getByBlogId(blogId);
     }
 

@@ -1,21 +1,22 @@
 package com.yuxh.blog.dao;
 
+import com.yuxh.blog.dao.base.BaseDao;
 import com.yuxh.blog.model.BlogInfo;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface BlogInfoDao {
+public interface BlogInfoDao extends BaseDao<BlogInfo> {
 
     List<BlogInfo> findAllBlogs();
 
-    int insert(BlogInfo record);
-
-    BlogInfo getById(String blogId);
-
     List<BlogInfo> findBlogs(@Param("typeId") String type);
 
-    List<BlogInfo> getCasualBlog(String typeId);
+    List<BlogInfo> getCasualBlog(Integer typeId);
 
     List<BlogInfo> getAboutBlog(String lableName);
+
+    List<BlogInfo> findRecommendBlogs();
+
+    List<BlogInfo> findTopBlogs();
 }

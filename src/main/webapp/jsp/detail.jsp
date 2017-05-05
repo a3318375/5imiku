@@ -9,7 +9,7 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>绮梦楼 - 文章专栏 - ${blogInfo.blogTitle}</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/Logo_40.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/tx.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resources/blg/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -33,7 +33,7 @@
                 <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
             </a>
             <!-- 不落阁 -->
-            <a class="blog-logo" href="/">爱纷飞</a>
+            <a class="blog-logo" href="/">绮梦楼</a>
             <!-- 导航菜单 -->
             <ul class="layui-nav" lay-filter="nav">
                 <li class="layui-nav-item layui-this">
@@ -49,7 +49,7 @@
                                     <a href="/dddd"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
                                 </li>--%>
                 <li class="layui-nav-item">
-                    <a href="/abount"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+                    <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
             </ul>
             <!-- 手机和平板的导航开关 -->

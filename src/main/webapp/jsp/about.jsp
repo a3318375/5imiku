@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>绮梦楼 - 关于本站</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/Logo_40.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/tx.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resources/blg/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -70,7 +70,7 @@
                                 </div>
                                 <p class="aboutinfo-nickname">绮梦楼</p>
                                 <p class="aboutinfo-introduce">一个java程序员的个人博客，分享一些技术和源码，还有一些个人爱好</p>
-                                <p class="aboutinfo-location"><i class="fa fa-link"></i>&nbsp;&nbsp;<a target="_blank" href="http://www.lyblogs.cn">www.lyblogs.cn</a></p>
+                                <p class="aboutinfo-location"><i class="fa fa-link"></i>&nbsp;&nbsp;<a target="_blank" href="http://www.5imiku.com">www.5imiku.com</a></p>
                                 <hr />
                                 <div class="aboutinfo-contact">
                                     <a target="_blank" title="网站首页" href="/"><i class="fa fa-home fa-2x" style="font-size:2.5em;position:relative;top:3px"></i></a>
@@ -80,7 +80,7 @@
                                 <fieldset class="layui-elem-field layui-field-title">
                                     <legend>简介</legend>
                                     <div class="layui-field-box aboutinfo-abstract">
-                                        <p style="text-align:center;">绮梦楼的源码是由不落阁分享的源码改编而来</p>
+                                        <p style="text-align:center;">绮梦楼的源码是由不落阁分享的源码改编而来.</p>
                                     </div>
                                 </fieldset>
                             </div>
@@ -88,9 +88,9 @@
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
                                 <div class="aboutinfo-figure">
-                                    <img src="../images/Absolutely.jpg" alt="Absolutely" />
+                                    <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
                                 </div>
-                                <p class="aboutinfo-nickname">Absolutely</p>
+                                <p class="aboutinfo-nickname">世羽</p>
                                 <p class="aboutinfo-introduce">一枚90后程序员，JAVA开发工程师</p>
                                 <p class="aboutinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;北京</p>
                                 <hr />
@@ -103,7 +103,7 @@
                                 <fieldset class="layui-elem-field layui-field-title">
                                     <legend>简介</legend>
                                     <div class="layui-field-box aboutinfo-abstract abstract-bloger">
-                                        <p style="text-align:center;">Absolutely，不落阁创始人，诞生于1996年2月14日，目前是一个码农，从事.NET开发。</p>
+                                        <p style="text-align:center;">世羽，java开发。</p>
                                         <h1>个人信息</h1>
                                         <p>暂无</p>
                                         <h1>个人介绍</h1>

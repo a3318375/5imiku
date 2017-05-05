@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>绮梦楼</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/Logo_40.png" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/tx.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resources/blg/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -58,15 +58,15 @@
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
         <!-- canvas -->
-        <canvas id="canvas-banner" style="background: #393D49;"></canvas>
+        <canvas id="canvas-banner" style="background: #000000;opacity:0.5;"></canvas>
         <!--为了及时效果需要立即设置canvas宽高，否则就在home.js中设置-->
         <script type="text/javascript">
             var canvas = document.getElementById('canvas-banner');
             canvas.width = window.document.body.clientWidth - 10;//减去滚动条的宽度
             if (screen.width >= 992) {
-                canvas.height = window.innerHeight * 1 / 3;
+                canvas.height = window.innerHeight * 1 / 6;
             } else {
-                canvas.height = window.innerHeight * 2 / 7;
+                canvas.height = window.innerHeight * 2 / 9;
             }
         </script>
         <!-- 这个一般才是真正的主体内容 -->
@@ -89,7 +89,7 @@
                 <div class="blog-main-right">
                     <div class="blogerinfo shadow">
                         <div class="blogerinfo-figure">
-                            <img src="${pageContext.request.contextPath}/resources/img/tx.png" alt="Absolutely" />
+                            <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
                         </div>
                         <p class="blogerinfo-nickname">小皓</p>
                         <p class="blogerinfo-introduce">90后java开发工程师</p>
@@ -144,11 +144,7 @@
                         </dl>
                     </div>--%>
                     <div class="blog-module shadow">
-                        <div class="blog-module-title">友情链接</div>
-                        <ul class="blogroll">
-                            <li><a target="_blank" href="http://www.layui.com/" title="Layui">Layui</a></li>
-                            <li><a target="_blank" href="http://www.pagemark.cn/" title="页签">页签</a></li>
-                        </ul>
+                        <div id="time" class="insta "></div>
                     </div>
                 </div>
                 <div class="clear"></div>
@@ -199,5 +195,6 @@
     <script src="${pageContext.request.contextPath}/resources/blg/js/global.js"></script>
     <!-- 本页脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/home.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/blg/js/time.js"></script>
 </body>
 </html>

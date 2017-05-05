@@ -11,6 +11,7 @@ import com.yuxh.blog.util.DateUtils;
 import com.yuxh.blog.util.Toolkits;
 import com.yuxh.blog.util.UUIDUtils;
 import com.yuxh.blog.vo.BlogVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -41,8 +42,16 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 
     @Override
     public PageInfo<BlogInfo> findBlogs(BlogVo blogVo) {
+        if(blogVo != null){
+            if(StringUtils.isBlank(blogVo.getType())){
+                blogVo.setType(null);
+            }
+            if(StringUtils.isBlank(blogVo.getName())){
+                blogVo.setName(null);
+            }
+        }
         PageHelper.startPage(blogVo.getPageNumber(), 5);
-        List<BlogInfo> list = blogInfoDao.findBlogs(blogVo.getType());
+        List<BlogInfo> list = blogInfoDao.findBlogs(blogVo.getType(),blogVo.getName());
         PageInfo<BlogInfo> page = new PageInfo<>(list, 5);
         return page;
     }

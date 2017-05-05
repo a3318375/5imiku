@@ -8,7 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; Charset=gb2312">
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>绮梦楼 - 文章专栏</title>
+    <title>绮梦楼 - 文章专栏 - 搜索</title>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/tx.jpg" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resources/blg/plug/layui/css/layui.css" rel="stylesheet" />
@@ -20,6 +20,8 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/article.css" rel="stylesheet" />
 </head>
 <body>
+    <input type="hidden" value="${blogVo.name}" id="searchName"/>
+    <input type="hidden" value="${blogVo.type}" id="searchType"/>
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
         <div class="blog-container">
@@ -61,7 +63,8 @@
         <div class="blog-container">
             <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
                 <a href="/" title="网站首页">网站首页</a>
-                <a><cite>文章专栏</cite></a>
+                <a href="/blog" title="文章专栏"><cite>文章专栏</cite></a>
+                <a><cite>搜索</cite></a>
             </blockquote>
             <div class="blog-main">
                 <div class="blog-main-left" id="blogList">
@@ -146,6 +149,6 @@
     <!-- layui.js -->
     <script src="${pageContext.request.contextPath}/resources/blg/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
-    <script src="${pageContext.request.contextPath}/resources/blg/js/global.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/blg/js/search.js"></script>
 </body>
 </html>

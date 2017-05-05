@@ -10,7 +10,7 @@ public interface BlogInfoDao extends BaseDao<BlogInfo> {
 
     List<BlogInfo> findAllBlogs();
 
-    List<BlogInfo> findBlogs(@Param("typeId") String type);
+    List<BlogInfo> findBlogs(@Param("typeId") String type,@Param("blogTitle") String name);
 
     List<BlogInfo> getCasualBlog(Integer typeId);
 

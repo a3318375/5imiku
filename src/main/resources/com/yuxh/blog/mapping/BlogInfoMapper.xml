@@ -85,12 +85,15 @@
     from blog_info
     where type_id = #{typeId,jdbcType=INTEGER}
   </select>
-  <select id="findBlogs" parameterType="java.lang.Integer" resultMap="findBlogsResultMap">
+  <select id="findBlogs" resultMap="findBlogsResultMap">
     select b.*,ifnull(p.page_view_count,0) as page_view_count,t.type_name
     FROM blog_info b LEFT JOIN (select blog_id,COUNT(blog_id) as page_view_count from page_view GROUP BY blog_id) p ON b.blog_id = p.blog_id,type_info t
     where b.type_id = t.type_id
     <if test="typeId != null" >
       and b.type_id = #{typeId,jdbcType=INTEGER}
+    </if>
+    <if test="blogTitle != null" >
+      and b.blog_title like CONCAT('%',#{blogTitle},'%')
     </if>
   </select>
 

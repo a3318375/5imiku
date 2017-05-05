@@ -41,6 +41,14 @@ public class BlogController {
         return "blog";
     }
 
+    @RequestMapping("/search")
+    public String search(BlogVo blogVo,Model uiModel){
+        List<TypeInfo> list = typeInfoService.findAllTypes();
+        uiModel.addAttribute("list",list);
+        uiModel.addAttribute("blogVo",blogVo);
+        return "blog_search";
+    }
+
     @RequestMapping("/json")
     @ResponseBody
     public PageInfo<BlogInfo> json(BlogVo blogVo){

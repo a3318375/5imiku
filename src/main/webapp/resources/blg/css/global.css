@@ -10,7 +10,7 @@
 body {
     background: #eee;
     color: #444;
-    background: url(/resources/img/bg1.jpg) no-repeat center center fixed;
+    background: url(/resources/img/bg2.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -170,7 +170,8 @@ body {
     height: 64px;
     position: fixed;
     top: 0;
-    background-color: #393D49;
+    background-color: #000000;
+    opacity:0.5;
     border-bottom: 1px solid #5FB878;
 }
 
@@ -279,7 +280,8 @@ body {
     text-align: center;
     border-top: 1px solid #009688;
     margin-top: 15px;
-    background: #2F4056;
+    background: #000000;
+    opacity:0.5;
     padding: 5px 0;
     color: #d3d2d2;
 }

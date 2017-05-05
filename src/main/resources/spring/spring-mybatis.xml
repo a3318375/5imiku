@@ -6,7 +6,9 @@
                         http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
                         http://www.springframework.org/schema/tx 
 						http://www.springframework.org/schema/tx/spring-tx.xsd">
-    <!-- 引入配置文件 -->  
+
+
+    <!-- 引入配置文件 -->
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
         <property name="location" value="classpath:properties/jdbc.properties" />  
     </bean>
@@ -45,7 +47,7 @@
 
         <!-- 监控数据库 -->
         <!-- <property name="filters" value="stat" /> -->
-        <property name="filters" value="mergeStat" />
+        <property name="filters" value="log4j" />
     </bean>  
   
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  

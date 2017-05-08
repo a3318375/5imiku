@@ -37,6 +37,8 @@ public class BlogController {
     @RequestMapping()
     public String index(Model uiModel){
         List<TypeInfo> list = typeInfoService.findAllTypes();
+        List<BlogInfo> rlist = blogInfoService.findRecommendBlogs();
+        uiModel.addAttribute("rlist",rlist);
         uiModel.addAttribute("list",list);
         return "blog";
     }
@@ -46,6 +48,8 @@ public class BlogController {
         List<TypeInfo> list = typeInfoService.findAllTypes();
         uiModel.addAttribute("list",list);
         uiModel.addAttribute("blogVo",blogVo);
+        List<BlogInfo> rlist = blogInfoService.findRecommendBlogs();
+        uiModel.addAttribute("rlist",rlist);
         return "blog_search";
     }
 

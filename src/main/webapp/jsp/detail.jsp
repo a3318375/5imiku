@@ -44,10 +44,10 @@
                 </li>
                 <%--                <li class="layui-nav-item">
                                     <a href="/zy"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
-                                </li>
-                                <li class="layui-nav-item">
-                                    <a href="/dddd"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
                                 </li>--%>
+                <li class="layui-nav-item">
+                    <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
+                </li>
                 <li class="layui-nav-item">
                     <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
@@ -107,8 +107,8 @@
                     <div class="article-category shadow">
                         <div class="article-category-title">分类导航</div>
                         <!-- 点击分类后的页面和artile.html页面一样，只是数据是某一类别的 -->
-                        <c:forEach items="${list}" var="type">
-                            <a href="javascript:layer.msg(&#39;切换到相应分类&#39;)">${type.typeName}</a>
+                        <c:forEach items="${tlist}" var="type">
+                            <a href="/blog/search?type=${type.typeId}">${type.typeName}</a>
                         </c:forEach>
                         <div class="clear"></div>
                     </div>
@@ -135,25 +135,22 @@
     </div>
     <!-- 底部 -->
     <footer class="blog-footer">
-        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">绮梦楼</a><span>Design By LY</span></p>
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.5imiku.com">绮梦楼</a><span>All rights reserved.</span></p>
         <p><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备17021290号-1</a></p>
     </footer>
     <!--侧边导航-->
     <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
         <li class="layui-nav-item">
-            <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+            <a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
         </li>
         <li class="layui-nav-item layui-this">
-            <a href="article.html"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+            <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
         </li>
         <li class="layui-nav-item">
-            <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+            <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
         </li>
         <li class="layui-nav-item">
-            <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+            <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
         </li>
     </ul>
     <!--分享窗体-->

@@ -37,6 +37,9 @@
                 <li class="layui-nav-item">
                     <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
                 </li>
+                <li class="layui-nav-item">
+                    <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
+                </li>
                 <li class="layui-nav-item layui-this">
                     <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
@@ -173,46 +176,6 @@
                                                     <button class="layui-btn" lay-submit="formLeaveMessage" lay-filter="formLeaveMessage">提交留言</button>
                                                 </div>
                                             </form>
-                                            <ul class="blog-comment">
-                                                <li>
-                                                    <div class="comment-parent">
-                                                        <img src="../images/Logo_40.png" alt="不落阁" />
-                                                        <div class="info">
-                                                            <span class="username">不落阁</span>
-                                                        </div>
-                                                        <div class="content">
-                                                            我为大家做了模拟留言与回复！试试吧！
-                                                        </div>
-                                                        <p class="info info-footer"><span class="time">2017-03-18 18:09</span><a class="btn-reply" href="javascript:;" onclick="btnReplyClick(this)">回复</a></p>
-                                                    </div>
-                                                    <hr />
-                                                    <div class="comment-child">
-                                                        <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
-                                                        <div class="info">
-                                                            <span class="username">Absolutely</span><span>这是用户回复内容</span>
-                                                        </div>
-                                                        <p class="info"><span class="time">2017-03-18 18:26</span></p>
-                                                    </div>
-                                                    <div class="comment-child">
-                                                        <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
-                                                        <div class="info">
-                                                            <span class="username">Absolutely</span><span>这是第二个用户回复内容</span>
-                                                        </div>
-                                                        <p class="info"><span class="time">2017-03-18 18:26</span></p>
-                                                    </div>
-                                                    <!-- 回复表单默认隐藏 -->
-                                                    <div class="replycontainer layui-hide">
-                                                        <form class="layui-form" action="">
-                                                            <div class="layui-form-item">
-                                                                <textarea name="replyContent" lay-verify="replyContent" placeholder="请输入回复内容" class="layui-textarea" style="min-height:80px;"></textarea>
-                                                            </div>
-                                                            <div class="layui-form-item">
-                                                                <button class="layui-btn layui-btn-mini" lay-submit="formReply" lay-filter="formReply">提交</button>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                </li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -225,7 +188,7 @@
     </div>
     <!-- 底部 -->
     <footer class="blog-footer">
-        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">绮梦楼</a><span>Design By LY</span></p>
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.5imiku.com">绮梦楼</a><span>All rights reserved.</span></p>
         <p><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备17021290号-1</a></p>
     </footer>
     <!--侧边导航-->
@@ -235,6 +198,9 @@
         </li>
         <li class="layui-nav-item">
             <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
         </li>
         <li class="layui-nav-item layui-this">
             <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>

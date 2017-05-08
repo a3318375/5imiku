@@ -42,10 +42,10 @@
                 </li>
 <%--                <li class="layui-nav-item">
                     <a href="/zy"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="/dddd"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
                 </li>--%>
+                <li class="layui-nav-item">
+                    <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
+                </li>
                 <li class="layui-nav-item">
                     <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
                 </li>
@@ -89,13 +89,17 @@
                     <div class="blog-module shadow">
                         <div class="blog-module-title">作者推荐</div>
                         <ul class="fa-ul blog-module-ul">
-                            <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">Web安全之跨站请求伪造CSRF</a></li>
+                            <c:forEach items="${rlist}" var="blog">
+                                <li><i class="fa-li fa fa-hand-o-right"></i><a href="/blog/details/${blog.blogId}">${blog.blogTitle}</a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                     <div class="blog-module shadow">
                         <div class="blog-module-title">随便看看</div>
                         <ul class="fa-ul blog-module-ul">
-                            <li><i class="fa-li fa fa-hand-o-right"></i><a href="detail.html">一步步制作时光轴（一）（HTML篇）</a></li>
+                            <c:forEach items="${rlist}" var="blog">
+                                <li><i class="fa-li fa fa-hand-o-right"></i><a href="/blog/details/${blog.blogId}">${blog.blogTitle}</a></li>
+                            </c:forEach>
                         </ul>
                     </div>
                     <!--右边悬浮 平板或手机设备显示-->
@@ -107,25 +111,22 @@
     </div>
     <!-- 底部 -->
     <footer class="blog-footer">
-        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.lyblogs.cn">绮梦楼</a><span>Design By LY</span></p>
+        <p><span>Copyright</span><span>&copy;</span><span>2017</span><a href="http://www.5imiku.com">绮梦楼</a><span>All rights reserved.</span></p>
         <p><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备17021290号-1</a></p>
     </footer>
     <!--侧边导航-->
     <ul class="layui-nav layui-nav-tree layui-nav-side blog-nav-left layui-hide" lay-filter="nav">
         <li class="layui-nav-item">
-            <a href="home.html"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
+            <a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
         </li>
         <li class="layui-nav-item layui-this">
-            <a href="blog.jsp"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
+            <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
         </li>
         <li class="layui-nav-item">
-            <a href="resource.html"><i class="fa fa-tags fa-fw"></i>&nbsp;资源分享</a>
+            <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
         </li>
         <li class="layui-nav-item">
-            <a href="timeline.html"><i class="fa fa-road fa-fw"></i>&nbsp;点点滴滴</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="about.html"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
+            <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
         </li>
     </ul>
     <!--分享窗体-->

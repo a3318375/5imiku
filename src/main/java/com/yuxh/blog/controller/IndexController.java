@@ -27,7 +27,7 @@ public class IndexController {
 	private NoticeInfoService noticeInfoService;
 
 	@RequestMapping()
-	public String index(BlogVo blogVo,Model uiModel){
+	public String index(Model uiModel){
 		List<BlogInfo> rlist = blogInfoService.findRecommendBlogs();
 		List<NoticeInfo> nlist = noticeInfoService.findAllNotices();
 		uiModel.addAttribute("rlist",rlist);

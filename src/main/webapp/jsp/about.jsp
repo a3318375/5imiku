@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <title>绮梦楼 - 关于本站</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/blg/images/tx.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/img/bktb.png" type="image/x-icon">
     <!--Layui-->
     <link href="${pageContext.request.contextPath}/resources/blg/plug/layui/css/layui.css" rel="stylesheet" />
     <!--font-awesome-->
@@ -21,12 +21,18 @@
     <nav class="blog-nav layui-header">
         <div class="blog-container">
             <!-- QQ互联登陆 -->
-            <a href="javascript:;" class="blog-user">
-                <i class="fa fa-qq"></i>
-            </a>
-            <a href="javascript:;" class="blog-user layui-hide">
-                <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" title="Absolutely" />
-            </a>
+            <c:choose>
+                <c:when test="${sessionScope.userInfo == null}">
+                    <a href="javascript:;" class="blog-user">
+                        <i class="fa fa-qq"></i>
+                    </a>
+                </c:when>
+                <c:otherwise>
+                    <a href="javascript:;" class="blog-user">
+                        <img src="${sessionScope.userInfo.avatar.avatarURL100}" alt="Absolutely" title="Absolutely" />
+                    </a>
+                </c:otherwise>
+            </c:choose>
             <!-- 不落阁 -->
             <a class="blog-logo" href="/">绮梦楼</a>
             <!-- 导航菜单 -->

@@ -96,12 +96,13 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
     var $ = layui.jquery;
     //模拟QQ登陆
     $('.blog-user').click(function () {
-        var user = this;
+        location.href = "/login";
+        /*var user = this;
         var index = layer.load(1);
         setTimeout(function () {
             layer.close(index);
             $(user).toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
-        }, 800);
+        }, 800);*/
     });
     //分享工具
     layui.util.fixbar({

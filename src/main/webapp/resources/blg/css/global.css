@@ -170,8 +170,9 @@ body {
     height: 64px;
     position: fixed;
     top: 0;
-    background-color: #000000;
-    opacity:0.5;
+    /*background-color: #000000;
+    opacity:0.5;*/
+    background:rgba(0, 0, 0, 0.5);
     border-bottom: 1px solid #5FB878;
 }
 

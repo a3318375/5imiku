@@ -51,7 +51,7 @@
 		<logger name="com.mchange.v2" level="warn">
 		</logger>
 		<!-- Game Stat  logger -->
-		<logger name="com.yuxh.blog.dao" level="info" additivity="false">
+		<logger name="com.yuxh.blog.controller" level="info" additivity="false">
 			<appender-ref ref="ProductLog"/>
 		</logger>
 		<!-- Root Logger -->

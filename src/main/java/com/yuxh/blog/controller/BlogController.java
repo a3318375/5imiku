@@ -1,6 +1,7 @@
 package com.yuxh.blog.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.qq.connect.javabeans.qzone.UserInfoBean;
 import com.yuxh.blog.model.BlogInfo;
 import com.yuxh.blog.model.CommentInfo;
 import com.yuxh.blog.model.TypeInfo;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -89,9 +91,13 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/comment")
-    @ResponseBody
-    public CommentInfo details(BlogVo blogVo){
-        CommentInfo commentInfo = commentInfoService.saveComment(blogVo);
-        return commentInfo;
+    public String details(BlogVo blogVo, HttpServletRequest request){
+        /*UserInfoBean userInfoBean = (UserInfoBean) request.getSession().getAttribute("userInfo");
+        if(userInfoBean == null){
+            return null;
+        }
+        blogVo.setUserInfoBean(userInfoBean);*/
+        commentInfoService.saveComment(blogVo);
+        return "redirect:/blog/details/" + blogVo.getBlogId();
     }
 }

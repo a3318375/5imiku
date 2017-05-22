@@ -1,5 +1,7 @@
 package com.yuxh.blog.vo;
 
+import com.qq.connect.javabeans.qzone.UserInfoBean;
+
 /**
  * Created by Lenovo on 2017/3/20.
  */
@@ -16,6 +18,15 @@ public class BlogVo {
     private String ip;
     private int pageNumber;
     private int userId;
+    private UserInfoBean userInfoBean;
+
+    public UserInfoBean getUserInfoBean() {
+        return userInfoBean;
+    }
+
+    public void setUserInfoBean(UserInfoBean userInfoBean) {
+        this.userInfoBean = userInfoBean;
+    }
 
     public int getUserId() {
         return userId;

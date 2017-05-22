@@ -6,6 +6,7 @@ import com.yuxh.blog.dao.CommentInfoDao;
 import com.yuxh.blog.model.CommentInfo;
 import com.yuxh.blog.service.CommentInfoService;
 import com.yuxh.blog.vo.BlogVo;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -30,9 +31,10 @@ public class CommentInfoServiceImpl implements CommentInfoService {
     public CommentInfo saveComment(BlogVo blogVo) {
         CommentInfo commentInfo = new CommentInfo();
         commentInfo.setBlogId(blogVo.getBlogId());
-        commentInfo.setCommentText(blogVo.getContext());
+        commentInfo.setCommentText(StringEscapeUtils.escapeHtml4(blogVo.getContext()));
         commentInfo.setCreateDate(new Date());
-        commentInfo.setUserId(blogVo.getUserId());
+        //commentInfo.setUserName(blogVo.getUserInfoBean().getNickname());
+        //commentInfo.setUserIcon(blogVo.getUserInfoBean().getAvatar().getAvatarURL50());
         commentInfoDao.insert(commentInfo);
         return commentInfo;
     }

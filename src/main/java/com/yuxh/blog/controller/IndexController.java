@@ -49,7 +49,7 @@ public class IndexController {
 		}
 		ip = request.getHeader("X-Forwarded-For");
 		if (!StringUtils.isBlank(ip) && !"unknown".equalsIgnoreCase(ip)) {
-			// 多次反向代理后会有多个IP值，第一个为真实IP。
+			//多次反向代理后会有多个IP值，第一个为真实IP
 			int index = ip.indexOf(',');
 			if (index != -1) {
 				return ip.substring(0, index);

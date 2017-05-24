@@ -5,8 +5,9 @@ import com.github.pagehelper.PageInfo;
 import com.yuxh.blog.dao.BlogInfoDao;
 import com.yuxh.blog.model.BlogInfo;
 import com.yuxh.blog.model.PageView;
-import com.yuxh.blog.service.BlogInfoService;
-import com.yuxh.blog.service.PageViewService;
+import com.yuxh.blog.model.TypeInfo;
+import com.yuxh.blog.model.ViewLog;
+import com.yuxh.blog.service.*;
 import com.yuxh.blog.util.DateUtils;
 import com.yuxh.blog.util.Toolkits;
 import com.yuxh.blog.util.UUIDUtils;
@@ -14,6 +15,7 @@ import com.yuxh.blog.vo.BlogVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import java.io.*;
 import java.util.Date;
@@ -28,7 +30,11 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     @Autowired
     private BlogInfoDao blogInfoDao;
     @Autowired
-    private PageViewService pageViewService;
+    private TypeInfoService typeInfoService;
+    @Autowired
+    private ViewLogService viewLogService;
+    @Autowired
+    private CommentInfoService commentInfoService;
 
     public List<BlogInfo> findAllBlogs() {
         return blogInfoDao.findAllBlogs();
@@ -74,6 +80,27 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     @Override
     public List<BlogInfo> findRecommendBlogs() {
         return blogInfoDao.findRecommendBlogs();
+    }
+
+    @Override
+    public void details(String ip, BlogVo blogVo, Model uiModel) {
+        BlogInfo blogInfo = blogInfoDao.selectByPrimaryKey(blogVo.getBlogId());
+        List<BlogInfo> blist = blogInfoDao.getAboutBlog(blogInfo.getLableName());
+        List<BlogInfo> clist = blogInfoDao.getCasualBlog(blogInfo.getTypeId());
+        List<TypeInfo> tlist = typeInfoService.findAllTypes();
+        uiModel.addAttribute("tlist",tlist);
+        uiModel.addAttribute("clist",clist);
+        uiModel.addAttribute("blogInfo",blogInfo);
+        uiModel.addAttribute("blist",blist);
+
+        ViewLog vl = new ViewLog();
+        vl.setBlogId(blogInfo.getBlogId());
+        vl.setViewDate(new Date());
+        vl.setViewIp(ip);
+        viewLogService.insert(vl);
+
+        int viewCount = viewLogService.getViewCount(blogInfo.getBlogId());
+        uiModel.addAttribute("viewCount",viewCount);
     }
 
 }

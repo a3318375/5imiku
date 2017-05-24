@@ -5,6 +5,7 @@ import java.util.List;
 import com.github.pagehelper.PageInfo;
 import com.yuxh.blog.model.BlogInfo;
 import com.yuxh.blog.vo.BlogVo;
+import org.springframework.ui.Model;
 
 public interface BlogInfoService {
 
@@ -21,4 +22,6 @@ public interface BlogInfoService {
     List<BlogInfo> findTopBlogs();
 
     List<BlogInfo> findRecommendBlogs();
+
+    void details(String ip, BlogVo blogVo, Model uiModel);
 }

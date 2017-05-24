@@ -37,6 +37,12 @@
     -->
     comment_text
   </sql>
+  <select id="getCommentCount" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    select
+    count(*)
+    from comment_info
+    where blog_id = #{blogId,jdbcType=INTEGER}
+  </select>
   <select id="getByBlogId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
@@ -46,6 +52,7 @@
     where blog_id = #{blogId,jdbcType=INTEGER}
     order by create_date desc
   </select>
+
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

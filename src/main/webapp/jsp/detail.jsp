@@ -20,8 +20,12 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/prettify.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/detail.css" rel="stylesheet" />
+    <style type="text/css">
+        #blogContent img{ max-width:740px;}
+    </style>
 </head>
 <body>
+    <input type="hidden" id="userInfo" value="${sessionScope.userInfo}">
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
         <div class="blog-container">
@@ -82,9 +86,9 @@
                         <div class="article-detail-info">
                             <span>编辑时间：<fmt:formatDate value="${blogInfo.createDate}" type="both"/></span>
                             <span>作者：${blogInfo.blogAuthor}</span>
-                            <span>浏览量：12</span>
+                            <span>浏览量：${viewCount}</span>
                         </div>
-                        <div class="article-detail-content">
+                        <div class="article-detail-content" id="blogContent">
                             ${blogInfo.blogContext}
                         </div>
                     </div>
@@ -93,9 +97,10 @@
                         <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
                             <legend>来说两句吧</legend>
                             <div class="layui-field-box">
-                                <form class="layui-form blog-editor" action="">
+                                <form class="layui-form blog-editor" id="commentForm" action="/blog/comment" method="post">
                                     <div class="layui-form-item">
-                                        <input type="hidden" id="blogId" value="${blogInfo.blogId}"/>
+                                        <input type="hidden" id="blogId" name="blogId" value="${blogInfo.blogId}"/>
+                                        <input type="hidden" id="context" name="context"/>
                                         <textarea name="editorContent" lay-verify="content" id="remarkEditor" placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
                                     </div>
                                     <div class="layui-form-item">

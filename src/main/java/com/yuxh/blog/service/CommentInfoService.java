@@ -16,4 +16,6 @@ public interface CommentInfoService {
     CommentInfo saveComment(BlogVo blogVo);
 
     PageInfo<CommentInfo> getComments(BlogVo blogVo);
+
+    int getCommentCount(Integer blogId);
 }

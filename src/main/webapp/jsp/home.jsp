@@ -100,15 +100,15 @@
                         <div class="blogerinfo-figure">
                             <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
                         </div>
-                        <p class="blogerinfo-nickname">小皓</p>
+                        <p class="blogerinfo-nickname">晨星</p>
                         <p class="blogerinfo-introduce">90后java开发工程师</p>
                         <p class="blogerinfo-location"><i class="fa fa-location-arrow"></i>&nbsp;北京</p>
                         <hr />
                         <div class="blogerinfo-contact">
-                            <a target="_blank" title="QQ交流" href="javascript:layer.msg('启动QQ会话窗口')"><i class="fa fa-qq fa-2x"></i></a>
-                            <a target="_blank" title="给我写信" href="javascript:layer.msg('启动邮我窗口')"><i class="fa fa-envelope fa-2x"></i></a>
-                            <a target="_blank" title="新浪微博" href="javascript:layer.msg('转到你的微博主页')"><i class="fa fa-weibo fa-2x"></i></a>
-                            <a target="_blank" title="码云" href="javascript:layer.msg('转到你的github主页')"><i class="fa fa-git fa-2x"></i></a>
+                            <a target="_blank" title="QQ交流" href="tencent://message/?uin=184608371"><i class="fa fa-qq fa-2x"></i></a>
+                            <a target="_blank" title="给我写信" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=yuxhcx@outlook.com"><i class="fa fa-envelope fa-2x"></i></a>
+                            <a target="_blank" title="新浪微博" href="http://weibo.com/5460944408/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1"><i class="fa fa-weibo fa-2x"></i></a>
+                            <a target="_blank" title="github" href="https://github.com/a3318375"><i class="fa fa-git fa-2x"></i></a>
                         </div>
                     </div>
                     <div></div><!--占位-->

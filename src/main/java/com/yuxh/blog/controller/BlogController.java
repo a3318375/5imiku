@@ -10,6 +10,7 @@ import com.yuxh.blog.service.CommentInfoService;
 import com.yuxh.blog.service.TypeInfoService;
 import com.yuxh.blog.util.ResultUtils;
 import com.yuxh.blog.vo.BlogVo;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -78,26 +79,41 @@ public class BlogController {
     }
 
     @RequestMapping(value = "/details/{blogId}",  produces = "text/html")
-    public String details(BlogVo blogVo,Model uiModel){
-        BlogInfo blogInfo = blogInfoService.getById(blogVo);
-        List<BlogInfo> blist = blogInfoService.getAboutBlog(blogInfo.getLableName());
-        List<BlogInfo> clist = blogInfoService.getCasualBlog(blogInfo.getTypeId());
-        List<TypeInfo> tlist = typeInfoService.findAllTypes();
-        uiModel.addAttribute("tlist",tlist);
-        uiModel.addAttribute("clist",clist);
-        uiModel.addAttribute("blogInfo",blogInfo);
-        uiModel.addAttribute("blist",blist);
+    public String details(BlogVo blogVo,Model uiModel,HttpServletRequest request){
+        String ip = getIpAddr(request);
+        blogInfoService.details(ip,blogVo,uiModel);
+
+
         return "detail";
     }
 
     @RequestMapping(value = "/comment")
     public String details(BlogVo blogVo, HttpServletRequest request){
-        /*UserInfoBean userInfoBean = (UserInfoBean) request.getSession().getAttribute("userInfo");
+        UserInfoBean userInfoBean = (UserInfoBean) request.getSession().getAttribute("userInfo");
         if(userInfoBean == null){
             return null;
         }
-        blogVo.setUserInfoBean(userInfoBean);*/
+        blogVo.setUserInfoBean(userInfoBean);
         commentInfoService.saveComment(blogVo);
         return "redirect:/blog/details/" + blogVo.getBlogId();
+    }
+
+    public static String getIpAddr(HttpServletRequest request) {
+        String ip = request.getHeader("X-Real-IP");
+        if (!StringUtils.isBlank(ip) && !"unknown".equalsIgnoreCase(ip)) {
+            return ip;
+        }
+        ip = request.getHeader("X-Forwarded-For");
+        if (!StringUtils.isBlank(ip) && !"unknown".equalsIgnoreCase(ip)) {
+            //多次反向代理后会有多个IP值，第一个为真实IP
+            int index = ip.indexOf(',');
+            if (index != -1) {
+                return ip.substring(0, index);
+            } else {
+                return ip;
+            }
+        } else {
+            return request.getRemoteAddr();
+        }
     }
 }

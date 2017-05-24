@@ -30,7 +30,8 @@
 
   <resultMap id="findBlogsResultMap" type="com.yuxh.blog.model.BlogInfo" extends="BaseResultMap">
     <result column="type_name" property="typeName" jdbcType="VARCHAR" />
-    <result column="page_view_count" property="pageViewCount" jdbcType="INTEGER" />
+    <result column="view_count" property="viewCount" jdbcType="INTEGER" />
+    <result column="comment_count" property="commentCount" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     <!--
@@ -86,8 +87,12 @@
     where type_id = #{typeId,jdbcType=INTEGER}
   </select>
   <select id="findBlogs" resultMap="findBlogsResultMap">
-    select b.*,ifnull(p.page_view_count,0) as page_view_count,t.type_name
-    FROM blog_info b LEFT JOIN (select blog_id,COUNT(blog_id) as page_view_count from page_view GROUP BY blog_id) p ON b.blog_id = p.blog_id,type_info t
+    select b.*,ifnull(vcount.view_count,0) as view_count,ifnull(ccount.comment_count,0) as comment_count,t.type_name from blog_info b
+    LEFT JOIN (select blog_id,count(*) view_count from view_log GROUP BY blog_id) vcount
+    ON b.blog_id = vcount.blog_id
+    LEFT JOIN (select blog_id,count(*) comment_count from comment_info GROUP BY blog_id) ccount
+    ON b.blog_id = ccount.blog_id
+    ,type_info t
     where b.type_id = t.type_id
     <if test="typeId != null" >
       and b.type_id = #{typeId,jdbcType=INTEGER}

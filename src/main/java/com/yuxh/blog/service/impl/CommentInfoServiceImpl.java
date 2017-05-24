@@ -33,8 +33,8 @@ public class CommentInfoServiceImpl implements CommentInfoService {
         commentInfo.setBlogId(blogVo.getBlogId());
         commentInfo.setCommentText(StringEscapeUtils.escapeHtml4(blogVo.getContext()));
         commentInfo.setCreateDate(new Date());
-        //commentInfo.setUserName(blogVo.getUserInfoBean().getNickname());
-        //commentInfo.setUserIcon(blogVo.getUserInfoBean().getAvatar().getAvatarURL50());
+        commentInfo.setUserName(blogVo.getUserInfoBean().getNickname());
+        commentInfo.setUserIcon(blogVo.getUserInfoBean().getAvatar().getAvatarURL50());
         commentInfoDao.insert(commentInfo);
         return commentInfo;
     }
@@ -45,5 +45,10 @@ public class CommentInfoServiceImpl implements CommentInfoService {
         List<CommentInfo> list = commentInfoDao.getByBlogId(blogVo.getBlogId());
         PageInfo<CommentInfo> page = new PageInfo<>(list, 5);
         return page;
+    }
+
+    @Override
+    public int getCommentCount(Integer blogId) {
+        return commentInfoDao.getCommentCount(blogId);
     }
 }

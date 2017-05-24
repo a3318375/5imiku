@@ -244,8 +244,8 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
                         '</span><span class="article-author"><i class="fa fa-user">' +
                         '</i>&nbsp;&nbsp;' +item.blogAuthor+ '</span><span><i class="fa fa-tag">' +
                         '</i>&nbsp;&nbsp;<a href="#">' + item.typeName + '</a></span>' +
-                        '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + item.pageViewCount + '</span>' +
-                        '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;0</span>' +
+                        '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + item.viewCount + '</span>' +
+                        '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;'+item.commentCount+'</span>' +
                         '</div></div>';
                     lis.push(code);
                 });

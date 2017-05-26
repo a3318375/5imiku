@@ -79,21 +79,28 @@
             <div class="blog-main">
                 <div class="blog-main-left">
                     <!-- 文章内容（使用Kingeditor富文本编辑器发表的） -->
-                    <div class="article-detail shadow">
+                    <div class="article-detail shadow mhtx">
                         <div class="article-detail-title">
                             ${blogInfo.blogTitle}
                         </div>
-                        <div class="article-detail-info">
-                            <span>编辑时间：<fmt:formatDate value="${blogInfo.createDate}" type="both"/></span>
-                            <span>作者：${blogInfo.blogAuthor}</span>
-                            <span>浏览量：${viewCount}</span>
+                        <div class="article-detail-info" style="color: #5ea3f7">
+                            <div>
+                                <i class="fa fa-calendar"></i>
+                                <span>编辑时间：<fmt:formatDate value="${blogInfo.createDate}" type="both"/></span>
+                            </div>
+                            <div style="margin-top: 2px;">
+                                <i class="fa fa-user-circle-o"></i>
+                                <span>作者：${blogInfo.blogAuthor}</span>
+                                <i class="fa fa-comments-o" style="margin-left: 15px"></i>
+                                <span>评论数：${commentCount}</span>
+                            </div>
                         </div>
                         <div class="article-detail-content" id="blogContent">
                             ${blogInfo.blogContext}
                         </div>
                     </div>
                     <!-- 评论区域 -->
-                    <div class="blog-module shadow" style="box-shadow: 0 1px 8px #a6a6a6;" id="commentList">
+                    <div class="blog-module shadow mhtx" style="box-shadow: 0 1px 8px #a6a6a6;" id="commentList">
                         <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
                             <legend>来说两句吧</legend>
                             <div class="layui-field-box">

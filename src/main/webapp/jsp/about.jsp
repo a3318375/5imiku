@@ -17,8 +17,18 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/about.css" rel="stylesheet" />
+    <style>
+        .rotate {
+            -webkit-transition: -webkit-transform 2s;
+        }
+        .rotate:hover {
+            -webkit-transform: rotate(360deg);
+        }
+
+    </style>
 </head>
 <body>
+<input type="hidden" id="userInfo" value="${sessionScope.userInfo}">
     <!-- 导航 -->
     <nav class="blog-nav layui-header">
         <div class="blog-container">
@@ -126,11 +136,24 @@
                         </div><!--关于作者End-->
                         <div class="layui-tab-item">
                             <div class="aboutinfo">
-                                <div class="aboutinfo-figure">
-                                    <img src="${pageContext.request.contextPath}/resources/blg/images/handshake.png" alt="友情链接" />
+                                <hr />
+                                <div class="aboutinfo-contact">
+                                    <p style="font-size:2em;">快捷标签</p>
                                 </div>
-                                <p class="aboutinfo-nickname">友情链接</p>
-                                <p class="aboutinfo-introduce">Name：绮梦楼&nbsp;&nbsp;&nbsp;&nbsp;Site：www.5imiku.com</p>
+                                <fieldset class="layui-elem-field layui-field-title">
+                                    <legend>Friend Link</legend>
+                                    <div class="layui-field-box">
+                                        <ul class="friendlink">
+                                            <li class="rotate">
+                                                <a target="_blank" href="http://music.163.com/" title="Layui" class="friendlink-item">
+                                                    <p class="friendlink-item-pic"><img src="${pageContext.request.contextPath}/resources/blg/images/163.jpg" alt="163" /></p>
+                                                    <p class="friendlink-item-title">网易云</p>
+                                                    <p class="friendlink-item-domain">music.163.com</p>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </fieldset>
                                 <hr />
                                 <div class="aboutinfo-contact">
                                     <p style="font-size:2em;">互换友链，携手并进！</p>
@@ -139,18 +162,11 @@
                                     <legend>Friend Link</legend>
                                     <div class="layui-field-box">
                                         <ul class="friendlink">
-                                            <li>
+                                            <li class="rotate">
                                                 <a target="_blank" href="http://www.layui.com/" title="Layui" class="friendlink-item">
                                                     <p class="friendlink-item-pic"><img src="http://www.layui.com/favicon.ico" alt="Layui" /></p>
                                                     <p class="friendlink-item-title">Layui</p>
                                                     <p class="friendlink-item-domain">layui.com</p>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a target="_blank" href="http://www.pagemark.cn/" title="页签" class="friendlink-item">
-                                                    <p class="friendlink-item-pic"><img src="http://pm.lyblogs.cn/Images/logo-png.png" alt="页签" /></p>
-                                                    <p class="friendlink-item-title">页签</p>
-                                                    <p class="friendlink-item-domain">pagemark.cn</p>
                                                 </a>
                                             </li>
                                         </ul>
@@ -176,14 +192,17 @@
                                     <legend>Leave a message</legend>
                                     <div class="layui-field-box">
                                         <div class="leavemessage" style="text-align:initial">
-                                            <form class="layui-form blog-editor" action="">
+                                            <form class="layui-form blog-editor" id="commentForm" action="/comment/save" method="post">
                                                 <div class="layui-form-item">
+                                                    <input type="hidden" id="blogId" name="blogId" value="0"/>
+                                                    <input type="hidden" id="context" name="context"/>
                                                     <textarea name="editorContent" lay-verify="content" id="remarkEditor" placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
                                                 </div>
                                                 <div class="layui-form-item">
                                                     <button class="layui-btn" lay-submit="formLeaveMessage" lay-filter="formLeaveMessage">提交留言</button>
                                                 </div>
                                             </form>
+                                            <ul class="blog-comment" id="commentList"></ul>
                                         </div>
                                     </div>
                                 </fieldset>

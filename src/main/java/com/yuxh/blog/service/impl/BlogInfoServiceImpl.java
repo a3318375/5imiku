@@ -99,8 +99,8 @@ public class BlogInfoServiceImpl implements BlogInfoService {
         vl.setViewIp(ip);
         viewLogService.insert(vl);
 
-        int viewCount = viewLogService.getViewCount(blogInfo.getBlogId());
-        uiModel.addAttribute("viewCount",viewCount);
+        int commentCount = commentInfoService.getCommentCount(blogInfo.getBlogId());
+        uiModel.addAttribute("commentCount",commentCount);
     }
 
 }

@@ -63,23 +63,12 @@
     </nav>
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
-        <!-- canvas -->
-        <canvas id="canvas-banner" style="background: #000000;opacity:0.5;"></canvas>
-        <!--为了及时效果需要立即设置canvas宽高，否则就在home.js中设置-->
-        <script type="text/javascript">
-            var canvas = document.getElementById('canvas-banner');
-            canvas.width = window.document.body.clientWidth - 10;//减去滚动条的宽度
-            if (screen.width >= 992) {
-                canvas.height = window.innerHeight * 1 / 6;
-            } else {
-                canvas.height = window.innerHeight * 2 / 9;
-            }
-        </script>
+        <br/>
         <!-- 这个一般才是真正的主体内容 -->
         <div class="blog-container">
             <div class="blog-main">
                 <!-- 网站公告提示 -->
-                <div class="home-tips shadow">
+                <div class="home-tips shadow mhtx">
                     <i style="float:left;line-height:17px;" class="fa fa-volume-up"></i>
                     <div class="home-tips-container">
                         <c:forEach items="${nlist}" var="notice">
@@ -96,7 +85,7 @@
                     </div>
                 <!--右边小栏目-->
                 <div class="blog-main-right">
-                    <div class="blogerinfo shadow">
+                    <div class="blogerinfo shadow mhtx">
                         <div class="blogerinfo-figure">
                             <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
                         </div>
@@ -112,7 +101,7 @@
                         </div>
                     </div>
                     <div></div><!--占位-->
-                    <div class="blog-module shadow">
+                    <%--<div class="blog-module shadow">
                         <div class="blog-module-title">热文排行</div>
                         <ul class="fa-ul blog-module-ul">
                             <c:forEach items="${rlist}" var="blog">
@@ -127,7 +116,7 @@
                                 <li><i class="fa-li fa fa-hand-o-right"></i><a href="/blog/details/${blog.blogId}">${blog.blogTitle}</a></li>
                             </c:forEach>
                         </ul>
-                    </div>
+                    </div>--%>
                     <%--<div class="blog-module shadow">
                         <div class="blog-module-title">一路走来</div>
                         <dl class="footprint">
@@ -152,7 +141,8 @@
                             <dd>新增Win10快捷菜单</dd>
                         </dl>
                     </div>--%>
-                    <div class="blog-module shadow">
+
+                    <div class="blog-module shadow mhtx">
                         <div id="time" class="insta "></div>
                     </div>
                 </div>

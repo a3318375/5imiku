@@ -17,6 +17,8 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/home.css" rel="stylesheet" />
+
+    <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -85,6 +87,21 @@
                     </div>
                 <!--右边小栏目-->
                 <div class="blog-main-right">
+                    <div class="blog-module shadow mhtx touming">
+                        <div id="time" class="insta "></div>
+                        <div class="blog-search">
+                            <form class="layui-form" action="/blog/search">
+                                <div class="layui-form-item">
+                                    <div class="search-keywords  shadow">
+                                        <input type="text" name="name" lay-verify="required" placeholder="输入关键词搜索" autocomplete="off" class="layui-input">
+                                    </div>
+                                    <div class="search-submit  shadow">
+                                        <button class="search-btn" lay-submit="formSearch" lay-filter="formSearch"><i class="fa fa-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <div class="blogerinfo shadow mhtx">
                         <div class="blogerinfo-figure">
                             <img src="${pageContext.request.contextPath}/resources/blg/images/Absolutely.jpg" alt="Absolutely" />
@@ -142,9 +159,6 @@
                         </dl>
                     </div>--%>
 
-                    <div class="blog-module shadow mhtx">
-                        <div id="time" class="insta "></div>
-                    </div>
                 </div>
                 <div class="clear"></div>
             </div>

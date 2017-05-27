@@ -10,7 +10,7 @@
 body {
     background: #eee;
     color: #444;
-    background: url(/resources/img/bg2.jpg) no-repeat center center fixed;
+    background: url(/resources/img/bg3.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -46,7 +46,7 @@ body {
 
     .blog-main > .home-tips {
         padding: 10px 10px;
-        background: #fff;
+        background: rgba(255, 255, 255, 0.8);
         font-size: 13px;
         margin-bottom: 15px;
     }

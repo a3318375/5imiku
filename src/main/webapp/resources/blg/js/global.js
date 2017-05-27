@@ -234,7 +234,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
             $.get('/blog/json?pageNumber='+page, function(res){
                 //假设你的列表返回在data集合中
                 layui.each(res.list, function(index, item){
-                    var code = '<div class="article shadow mhtx"><div class="article-left">' +
+                    var code = '<div class="article shadow mhtx animated flipInY"><div class="article-left">' +
                         '<img src="' + item.blogCover +'" alt="' + item.blogTitle + '" height="120" />' +
                         '</div><div class="article-right"><div class="article-title">' +
                         '<a href="/blog/details/'+ item.blogId +'">' +item.blogTitle+ '</a></div><div class="article-abstract">' +

@@ -18,6 +18,8 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/article.css" rel="stylesheet" />
+
+    <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
 </head>
 <body>
     <input type="hidden" value="${blogVo.name}" id="searchName"/>

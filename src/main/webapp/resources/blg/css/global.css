@@ -453,14 +453,21 @@ body {
 
 /*文章列表（网站首页和文章专栏共用）*/
 .article {
-    padding: 15px;
+    /*padding: 15px;
     margin-bottom: 10px;
     background: rgba(255, 255, 255, 0.8);
     border-left: 5px solid #fff;
     -moz-transition: all 0.3s linear;
     -o-transition: all 0.3s linear;
     -webkit-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+    transition: all 0.3s linear;*/
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    min-height: 380px;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 5px;
 }
 
     .article:hover {
@@ -474,6 +481,22 @@ body {
     .article > .article-left {
         width: 25%;
         float: left;
+    }
+
+    .article > .article-top-new {
+        width: 100%;
+        float: left;
+        display: flex;
+        box-sizing: border-box;
+        padding: 24.72px;
+        background-size: cover;
+        cursor: pointer;
+        flex-grow: 1;
+        flex-direction: row;
+        align-items: flex-end;
+    }
+    .article > .article-z-new {
+        padding: 20px 10px 0px 10px;
     }
 
         .article > .article-left > img {
@@ -544,13 +567,14 @@ body {
     }
 
     .article > .article-footer {
-        margin-top: 10px;
+        margin-top: 20px;
+        margin-left: 10px;
         font-size: 13px;
     }
 
         .article > .article-footer .article-viewinfo {
             display: inline;
-            float: right;
+            /*float: right;*/
         }
 
         .article > .article-footer .article-author {
@@ -1127,4 +1151,16 @@ body {
     to {
         opacity: 0;
     }
+}
+.entry-title{
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 400;margin: 0;
+    text-shadow: 1px 1px 8px #444;
+}
+.article-meta{
+    text-align: center
+}
+.blog-down{
+    color: #ff7110;
 }

@@ -1,10 +1,10 @@
 ﻿/*
 
-@Name：不落阁整站模板源码 
-@Author：Absolutely 
-@Site：http://www.lyblogs.cn
+ @Name：不落阁整站模板源码
+ @Author：Absolutely
+ @Site：http://www.lyblogs.cn
 
-*/
+ */
 //扩展Date的format方法
 Date.prototype.format = function (format) {
     var o = {
@@ -92,17 +92,17 @@ function getFormatDate(date, pattern) {
     }
     return date.format(pattern);
 }
-layui.use(['element', 'layer', 'util', 'form','flow'], function () {
+layui.use(['element', 'layer', 'util', 'form', 'flow'], function () {
     var $ = layui.jquery;
     //模拟QQ登陆
     $('.blog-user').click(function () {
         location.href = "/login";
         /*var user = this;
-        var index = layer.load(1);
-        setTimeout(function () {
-            layer.close(index);
-            $(user).toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
-        }, 800);*/
+         var index = layer.load(1);
+         setTimeout(function () {
+         layer.close(index);
+         $(user).toggleClass('layui-hide').siblings('a.blog-user').toggleClass('layui-hide');
+         }, 800);*/
     });
     //分享工具
     layui.util.fixbar({
@@ -165,6 +165,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.blog-share').removeClass('layui-hide');
         $('.blog-share').addClass('layui-show');
     }
+
     //隐藏百度分享
     function shareOut() {
         $('.blog-share').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -174,6 +175,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.blog-share').addClass('shareOut');
         $('.blog-share').removeClass('layui-show');
     }
+
     //显示侧边导航
     function leftIn() {
         $('.blog-mask').unbind('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend');
@@ -189,6 +191,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.blog-nav-left').removeClass('layui-hide');
         $('.blog-nav-left').addClass('layui-show');
     }
+
     //隐藏侧边导航
     function leftOut() {
         $('.blog-mask').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -206,6 +209,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.blog-nav-left').addClass('leftOut');
         $('.blog-nav-left').removeClass('layui-show');
     }
+
     //显示类别导航
     function categroyIn() {
         $('.category-toggle').addClass('layui-hide');
@@ -215,6 +219,7 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.article-category').addClass('categoryIn');
         $('.article-category').addClass('layui-show');
     }
+
     //隐藏类别导航
     function categoryOut() {
         $('.article-category').on('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
@@ -225,27 +230,28 @@ layui.use(['element', 'layer', 'util', 'form','flow'], function () {
         $('.article-category').removeClass('categoryIn');
         $('.article-category').addClass('categoryOut');
     }
+
     var flow = layui.flow;
     flow.load({
         elem: '#blogList' //指定列表容器
-        ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+        , done: function (page, next) { //到达临界点（默认滚动触发），触发下一页
             var lis = [];
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
-            $.get('/blog/json?pageNumber='+page, function(res){
+            $.get('/blog/json?pageNumber=' + page, function (res) {
                 //假设你的列表返回在data集合中
-                layui.each(res.list, function(index, item){
-                    var code = '<div class="article shadow mhtx animated flipInY"><div class="article-left">' +
-                        '<img src="' + item.blogCover +'" alt="' + item.blogTitle + '" height="120" />' +
-                        '</div><div class="article-right"><div class="article-title">' +
-                        '<a href="/blog/details/'+ item.blogId +'">' +item.blogTitle+ '</a></div><div class="article-abstract">' +
-                         item.blogAbstract+ '</div></div><div class="clear"></div>' +
-                        '<div class="article-footer"><span><i class="fa fa-clock-o">' +
-                        '</i>&nbsp;&nbsp;' + getSmpFormatDateByLong(item.createDate,true) +
-                        '</span><span class="article-author"><i class="fa fa-user">' +
-                        '</i>&nbsp;&nbsp;' +item.blogAuthor+ '</span><span><i class="fa fa-tag">' +
-                        '</i>&nbsp;&nbsp;<a href="#">' + item.typeName + '</a></span>' +
-                        '<span class="article-viewinfo"><i class="fa fa-eye"></i>&nbsp;' + item.viewCount + '</span>' +
-                        '<span class="article-viewinfo"><i class="fa fa-commenting"></i>&nbsp;'+item.commentCount+'</span>' +
+                layui.each(res.list, function (index, item) {
+                    var code = '<div class="article shadow mhtx animated flipInY"><div class="article-top-new" style="background-image: url(' + item.blogCover + ');">' +
+                        '<p class="entry-title"><a href="/blog/details/' + item.blogId + '" style="color: white;">' + item.blogTitle + '</a></p>' +
+                        '</div>' +
+                        '<div class="article-z-new">' + item.blogAbstract + '</div>' +
+                        '<div class="article-footer">' +
+                        '<span class="blog-down"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;' + getSmpFormatDateByLong(item.createDate, true) +
+                        '</span><span class="article-author blog-down"><i class="fa fa-user">' +
+                        '</i>&nbsp;&nbsp;' + item.blogAuthor + '</span><span class="blog-down"><i class="fa fa-tag">' +
+                        '</i>&nbsp;&nbsp;' + item.typeName + '</span>' +
+                        '<span class="article-viewinfo blog-down"><i class="fa fa-eye"></i>&nbsp;' + item.viewCount + '</span>' +
+                        '<span class="article-viewinfo blog-down"><i class="fa fa-commenting"></i>&nbsp;' + item.commentCount + '</span>' +
+                        '<button class="layui-btn layui-btn-mini layui-btn-normal" style="float: right;margin: 0px 5px 5px 0;"><a href="/blog/details/' + item.blogId + '" style="color: white;">阅读全文</a></button>' +
                         '</div></div>';
                     lis.push(code);
                 });

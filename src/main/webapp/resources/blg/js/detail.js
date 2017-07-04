@@ -71,7 +71,7 @@ layui.use(['form', 'layedit','flow'], function () {
             var lis = [];
             var blogId = $("#blogId").val();
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
-            $.get('/blog/getComments?pageNumber='+page + "&blogId="  + blogId, function(res){
+            $.get('/blog/getComments?pageNumber='+page + "&blogUuid="  + blogId, function(res){
                 //假设你的列表返回在data集合中
                 layui.each(res.list, function(index, item){
                     var code = '<ul class="blog-comment"><li><div class="comment-parent"><img src="' + item.userIcon + '" alt="'+ item.userName +'" />' +

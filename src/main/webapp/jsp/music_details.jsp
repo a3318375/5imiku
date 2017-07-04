@@ -40,23 +40,24 @@
                 <div class="blog-main-left">
                     <!-- 文章内容（使用Kingeditor富文本编辑器发表的） -->
                     <div class="article-detail shadow mhtx">
-                        <div class="article-detail-title">
-                            ${blogInfo.blogTitle}
+                       <div class="article-detail-title">
+                            ${musicInfo.musicTitle}
                         </div>
                         <div class="article-detail-info" style="color: #5ea3f7">
                             <div>
                                 <i class="fa fa-calendar"></i>
-                                <span>编辑时间：<fmt:formatDate value="${blogInfo.createDate}" type="both"/></span>
+                                <span>编辑时间：<fmt:formatDate value="${musicInfo.createDate}" type="both"/></span>
                             </div>
                             <div style="margin-top: 2px;">
                                 <i class="fa fa-user-circle-o"></i>
-                                <span>作者：${blogInfo.blogAuthor}</span>
+                                <span>作者：${musicInfo.musicAuthor}</span>
                                 <i class="fa fa-comments-o" style="margin-left: 15px"></i>
                                 <span>评论数：${commentCount}</span>
                             </div>
                         </div>
                         <div class="article-detail-content" id="blogContent">
-                            ${blogInfo.blogContext}
+                                ${musicInfo.musicContent}
+                                ${musicInfo.musicUrl}
                         </div>
                     </div>
                     <!-- 评论区域 -->
@@ -66,7 +67,7 @@
                             <div class="layui-field-box">
                                 <form class="layui-form blog-editor" id="commentForm" action="/blog/comment" method="post">
                                     <div class="layui-form-item">
-                                        <input type="hidden" id="blogId" name="blogUuid" value="${blogInfo.blogUuid}"/>
+                                        <input type="hidden" id="blogId" name="blogUuid" value="${musicInfo.musicUuid}"/>
                                         <input type="hidden" id="context" name="context"/>
                                         <textarea name="editorContent" lay-verify="content" id="remarkEditor" placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
                                     </div>

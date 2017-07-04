@@ -20,6 +20,7 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/article.css" rel="stylesheet" />
 
     <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/imagehover.min.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -29,51 +30,21 @@
         <div class="blog-container">
             <blockquote class="layui-elem-quote sitemap layui-breadcrumb shadow">
                 <a href="/" title="网站首页">网站首页</a>
-                <a><cite>文章专栏</cite></a>
+                <a><cite>音乐分享</cite></a>
             </blockquote>
             <div class="blog-main">
-                <div class="blog-main-left" id="blogList">
+                <div class="demo" id="musicList">
+                    <%--<figure class="imghvr-zoom-in">
+                        <img src="http://p4.music.126.net/4d8hnmrMxDrKnn_0i1JqyA==/1728432278871211.jpg?param=300y225" alt="example-image">
+                        <figcaption>
+                            <h3>歌名：YOU</h3>
+                            <p>歌手：Approaching Nirvana</p>
+                            <p>美妙的纯音乐，希望大家喜欢</p>
+                        </figcaption>
+                        <a href="javascript:;"></a>
+                    </figure>--%>
+                    
                 </div>
-                <div class="blog-main-right">
-                    <div class="blog-search">
-                        <form class="layui-form" action="/blog/search">
-                            <div class="layui-form-item">
-                                <div class="search-keywords  shadow">
-                                    <input type="text" name="name" lay-verify="required" placeholder="输入关键词搜索" autocomplete="off" class="layui-input">
-                                </div>
-                                <div class="search-submit  shadow">
-                                    <button class="search-btn" lay-submit="formSearch" lay-filter="formSearch"><i class="fa fa-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="article-category shadow">
-                        <div class="article-category-title">分类导航</div>
-                        <c:forEach items="${list}" var="type">
-                            <a href="/blog/search?type=${type.typeId}">${type.typeName}</a>
-                        </c:forEach>
-                        <div class="clear"></div>
-                    </div>
-                    <div class="blog-module shadow">
-                        <div class="blog-module-title">作者推荐</div>
-                        <ul class="fa-ul blog-module-ul">
-                            <c:forEach items="${rlist}" var="blog">
-                                <li><i class="fa-li fa fa-hand-o-right"></i><a href="/blog/details/${blog.blogId}">${blog.blogTitle}</a></li>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                    <div class="blog-module shadow">
-                        <div class="blog-module-title">随便看看</div>
-                        <ul class="fa-ul blog-module-ul">
-                            <c:forEach items="${rlist}" var="blog">
-                                <li><i class="fa-li fa fa-hand-o-right"></i><a href="/blog/details/${blog.blogId}">${blog.blogTitle}</a></li>
-                            </c:forEach>
-                        </ul>
-                    </div>
-                    <!--右边悬浮 平板或手机设备显示-->
-                    <div class="category-toggle"><i class="fa fa-chevron-left"></i></div>
-                </div>
-                <div class="clear"></div>
             </div>
         </div>
     </div>
@@ -115,6 +86,6 @@
     <!-- layui.js -->
     <script src="${pageContext.request.contextPath}/resources/blg/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
-    <script src="${pageContext.request.contextPath}/resources/blg/js/global.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/blg/js/music.js"></script>
 </body>
 </html>

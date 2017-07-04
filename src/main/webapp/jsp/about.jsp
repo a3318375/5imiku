@@ -30,44 +30,8 @@
 <body>
 <input type="hidden" id="userInfo" value="${sessionScope.userInfo}">
     <!-- 导航 -->
-    <nav class="blog-nav layui-header">
-        <div class="blog-container">
-            <!-- QQ互联登陆 -->
-            <c:choose>
-                <c:when test="${sessionScope.userInfo == null}">
-                    <a href="javascript:;" class="blog-user">
-                        <i class="fa fa-qq"></i>
-                    </a>
-                </c:when>
-                <c:otherwise>
-                    <a href="javascript:;" class="blog-user">
-                        <img src="${sessionScope.userInfo.avatar.avatarURL100}" alt="Absolutely" title="Absolutely" />
-                    </a>
-                </c:otherwise>
-            </c:choose>
-            <!-- 不落阁 -->
-            <a class="blog-logo" href="/">绮梦楼</a>
-            <!-- 导航菜单 -->
-            <ul class="layui-nav" lay-filter="nav">
-                <li class="layui-nav-item">
-                    <a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
-                </li>
-                <li class="layui-nav-item layui-this">
-                    <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
-                </li>
-            </ul>
-            <!-- 手机和平板的导航开关 -->
-            <a class="blog-navicon" href="javascript:;">
-                <i class="fa fa-navicon"></i>
-            </a>
-        </div>
-    </nav>
+    <%@ include file="nav_head.jsp"%>
+
     <!-- 主体（一般只改变这里的内容） -->
     <div class="blog-body">
         <div class="blog-container">
@@ -90,7 +54,7 @@
                                     <img src="${pageContext.request.contextPath}/resources/blg/images/Logo_100.png" alt="绮梦楼" />
                                 </div>
                                 <p class="aboutinfo-nickname">绮梦楼</p>
-                                <p class="aboutinfo-introduce">一个java程序员的个人博客，分享一些技术和源码，还有一些个人爱好</p>
+                                <p class="aboutinfo-introduce">一个幻想的小楼，博客分享内容以日常，游戏，音乐和图文为主，技术分享为辅。</p>
                                 <p class="aboutinfo-location"><i class="fa fa-link"></i>&nbsp;&nbsp;<a target="_blank" href="http://www.5imiku.com">www.5imiku.com</a></p>
                                 <hr />
                                 <div class="aboutinfo-contact">
@@ -101,7 +65,9 @@
                                 <fieldset class="layui-elem-field layui-field-title">
                                     <legend>简介</legend>
                                     <div class="layui-field-box aboutinfo-abstract">
-                                        <p style="text-align:center;">绮梦楼的源码是由不落阁分享的源码改编而来.</p>
+                                        <p style="text-align:center;">想了很多次想做一个个人博客都没有动手，本来打算用bootstrap做.</p>
+                                        <p style="text-align:center;">后来偶然看到layui，恰巧看到不落阁分享的前后台源码，就直接拿来用了.</p>
+                                        <p style="text-align:center;">第一版是直接拿来用的，后来一直添加个人特色，直到目前.</p>
                                     </div>
                                 </fieldset>
                             </div>
@@ -124,7 +90,7 @@
                                 <fieldset class="layui-elem-field layui-field-title">
                                     <legend>简介</legend>
                                     <div class="layui-field-box aboutinfo-abstract abstract-bloger">
-                                        <p style="text-align:center;">晨星，java开发。</p>
+                                        <p style="text-align:center;">世羽，java开发。</p>
                                         <h1>个人信息</h1>
                                         <p>暂无</p>
                                         <h1>个人介绍</h1>

@@ -11,11 +11,11 @@ import java.util.List;
  */
 public interface CommentInfoService {
 
-    List<CommentInfo> getByBlogId(Integer blogId);
+    List<CommentInfo> getByBlogId(String blogId);
 
     CommentInfo saveComment(BlogVo blogVo);
 
     PageInfo<CommentInfo> getComments(BlogVo blogVo);
 
-    int getCommentCount(Integer blogId);
+    int getCommentCount(String blogId);
 }

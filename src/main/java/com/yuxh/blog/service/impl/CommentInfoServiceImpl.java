@@ -23,14 +23,14 @@ public class CommentInfoServiceImpl implements CommentInfoService {
     private CommentInfoDao commentInfoDao;
 
     @Override
-    public List<CommentInfo> getByBlogId(Integer blogId) {
+    public List<CommentInfo> getByBlogId(String blogId) {
         return commentInfoDao.getByBlogId(blogId);
     }
 
     @Override
     public CommentInfo saveComment(BlogVo blogVo) {
         CommentInfo commentInfo = new CommentInfo();
-        commentInfo.setBlogId(blogVo.getBlogId());
+        commentInfo.setBlogId(blogVo.getBlogUuid());
         commentInfo.setCommentText(StringEscapeUtils.escapeHtml4(blogVo.getContext()));
         commentInfo.setCreateDate(new Date());
         commentInfo.setUserName(blogVo.getUserInfoBean().getNickname());
@@ -42,13 +42,13 @@ public class CommentInfoServiceImpl implements CommentInfoService {
     @Override
     public PageInfo<CommentInfo> getComments(BlogVo blogVo) {
         PageHelper.startPage(blogVo.getPageNumber(), 5);
-        List<CommentInfo> list = commentInfoDao.getByBlogId(blogVo.getBlogId());
+        List<CommentInfo> list = commentInfoDao.getByBlogId(blogVo.getBlogUuid());
         PageInfo<CommentInfo> page = new PageInfo<>(list, 5);
         return page;
     }
 
     @Override
-    public int getCommentCount(Integer blogId) {
+    public int getCommentCount(String blogId) {
         return commentInfoDao.getCommentCount(blogId);
     }
 }

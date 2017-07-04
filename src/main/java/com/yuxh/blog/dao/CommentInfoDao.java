@@ -6,7 +6,8 @@ import com.yuxh.blog.model.CommentInfo;
 import java.util.List;
 
 public interface CommentInfoDao extends BaseDao<CommentInfo> {
-    List<CommentInfo> getByBlogId(Integer blogId);
 
-    int getCommentCount(Integer blogId);
+    List<CommentInfo> getByBlogId(String blogId);
+
+    int getCommentCount(String blogId);
 }

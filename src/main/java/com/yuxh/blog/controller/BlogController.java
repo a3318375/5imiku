@@ -63,14 +63,6 @@ public class BlogController {
         return page;
     }
 
-
-    @RequestMapping("/getComments")
-    @ResponseBody
-    public PageInfo<CommentInfo> getComments(BlogVo blogVo){
-        PageInfo<CommentInfo> page = commentInfoService.getComments(blogVo);
-        return page;
-    }
-
     @RequestMapping(value = "/{type}",  produces = "text/html")
     public String type(BlogVo blogVo, Model uiModel){
         PageInfo<BlogInfo> page = blogInfoService.findBlogs(blogVo);
@@ -85,17 +77,6 @@ public class BlogController {
 
 
         return "detail";
-    }
-
-    @RequestMapping(value = "/comment")
-    public String details(BlogVo blogVo, HttpServletRequest request){
-        UserInfoBean userInfoBean = (UserInfoBean) request.getSession().getAttribute("userInfo");
-        if(userInfoBean == null){
-            return null;
-        }
-        blogVo.setUserInfoBean(userInfoBean);
-        commentInfoService.saveComment(blogVo);
-        return "redirect:/blog/details/" + blogVo.getBlogId();
     }
 
     public static String getIpAddr(HttpServletRequest request) {

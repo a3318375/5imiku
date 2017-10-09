@@ -91,7 +91,7 @@
     LEFT JOIN (select blog_id,count(*) view_count from view_log GROUP BY blog_id) vcount
     ON b.blog_id = vcount.blog_id
     LEFT JOIN (select blog_id,count(*) comment_count from comment_info GROUP BY blog_id) ccount
-    ON b.blog_id = ccount.blog_id
+    ON b.blog_uuid = ccount.blog_id
     ,type_info t
     where b.type_id = t.type_id
     <if test="typeId != null" >
@@ -100,6 +100,7 @@
     <if test="blogTitle != null" >
       and b.blog_title like CONCAT('%',#{blogTitle},'%')
     </if>
+    order by b.create_date desc
   </select>
 
   <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >

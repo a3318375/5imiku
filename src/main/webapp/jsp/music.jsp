@@ -21,6 +21,7 @@
 
     <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
     <link href="${pageContext.request.contextPath}/resources/blg/css/imagehover.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg6.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -87,5 +88,10 @@
     <script src="${pageContext.request.contextPath}/resources/blg/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/music.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("music").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

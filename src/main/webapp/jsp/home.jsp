@@ -19,6 +19,8 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/home.css" rel="stylesheet" />
 
     <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
+
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg4.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -167,5 +169,10 @@
     <!-- 本页脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/home.js"></script>
     <script src="${pageContext.request.contextPath}/resources/blg/js/time.js"></script>
+    <script>
+        window.onload=function(){
+           document.getElementById("home").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

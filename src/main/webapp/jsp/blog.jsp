@@ -20,6 +20,8 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/article.css" rel="stylesheet" />
 
     <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
+
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg5.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -116,5 +118,10 @@
     <script src="${pageContext.request.contextPath}/resources/blg/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/global.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("blog").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

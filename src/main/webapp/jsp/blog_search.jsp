@@ -20,6 +20,7 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/article.css" rel="stylesheet" />
 
     <link href="${pageContext.request.contextPath}/resources/blg/css/animate.min.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg5.css" rel="stylesheet" />
 </head>
 <body>
     <input type="hidden" value="${blogVo.name}" id="searchName"/>
@@ -119,5 +120,10 @@
     <script src="${pageContext.request.contextPath}/resources/blg/plug/layui/layui.js"></script>
     <!-- 全局脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/search.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("blog").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

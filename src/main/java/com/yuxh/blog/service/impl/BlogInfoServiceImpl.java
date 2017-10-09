@@ -13,6 +13,8 @@ import com.yuxh.blog.util.Toolkits;
 import com.yuxh.blog.util.UUIDUtils;
 import com.yuxh.blog.vo.BlogVo;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -35,6 +37,8 @@ public class BlogInfoServiceImpl implements BlogInfoService {
     private ViewLogService viewLogService;
     @Autowired
     private CommentInfoService commentInfoService;
+    private static Logger logger = LogManager.getLogger(BlogInfoServiceImpl.class.getName());
+
 
     public List<BlogInfo> findAllBlogs() {
         return blogInfoDao.findAllBlogs();
@@ -42,12 +46,14 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 
     @Override
     public BlogInfo getById(BlogVo blogVo) {
+        logger.info("【博客】正在获取id为：" + blogVo.getBlogId() + "对象。");
         BlogInfo blogInfo = blogInfoDao.selectByPrimaryKey(blogVo.getBlogId());
         return blogInfo;
     }
 
     @Override
     public PageInfo<BlogInfo> findBlogs(BlogVo blogVo) {
+        logger.info("【博客】开始检索博客。");
         if(blogVo != null){
             if(StringUtils.isBlank(blogVo.getType())){
                 blogVo.setType(null);
@@ -84,6 +90,7 @@ public class BlogInfoServiceImpl implements BlogInfoService {
 
     @Override
     public void details(String ip, BlogVo blogVo, Model uiModel) {
+        logger.info("【博客】开始获取博客的详细内容。");
         BlogInfo blogInfo = blogInfoDao.selectByPrimaryKey(blogVo.getBlogId());
         List<BlogInfo> blist = blogInfoDao.getAboutBlog(blogInfo.getLableName());
         List<BlogInfo> clist = blogInfoDao.getCasualBlog(blogInfo.getTypeId());

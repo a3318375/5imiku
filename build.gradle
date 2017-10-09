@@ -58,6 +58,9 @@ dependencies {
     compile 'org.springframework:spring-test:4.0.5.RELEASE'
     compile 'com.alibaba:fastjson:1.2.29'
     compile 'org.apache.commons:commons-lang3:3.5'
+    // https://mvnrepository.com/artifact/org.apache.lucene/lucene-core
+    compile group: 'org.apache.lucene', name: 'lucene-core', version: '6.6.0'
+
 
     providedCompile 'javax.servlet:servlet-api:2.5'
 

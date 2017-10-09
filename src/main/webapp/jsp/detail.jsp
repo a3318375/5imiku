@@ -20,6 +20,7 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/prettify.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/detail.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg5.css" rel="stylesheet" />
     <style type="text/css">
         #blogContent img{ max-width:740px;}
     </style>
@@ -64,7 +65,7 @@
                         <fieldset class="layui-elem-field layui-field-title" style="margin-bottom:0">
                             <legend>来说两句吧</legend>
                             <div class="layui-field-box">
-                                <form class="layui-form blog-editor" id="commentForm" action="/blog/comment" method="post">
+                                <form class="layui-form blog-editor" id="commentForm" action="/comment/save" method="post">
                                     <div class="layui-form-item">
                                         <input type="hidden" id="blogId" name="blogUuid" value="${blogInfo.blogUuid}"/>
                                         <input type="hidden" id="context" name="context"/>
@@ -154,5 +155,10 @@
     <script src="${pageContext.request.contextPath}/resources/blg/js/prettify.js"></script>
     <!-- 本页脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/detail.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("blog").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

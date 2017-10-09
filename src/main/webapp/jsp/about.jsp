@@ -17,6 +17,7 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/about.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg7.css" rel="stylesheet" />
     <style>
         .rotate {
             -webkit-transition: -webkit-transform 2s;
@@ -160,7 +161,7 @@
                                         <div class="leavemessage" style="text-align:initial">
                                             <form class="layui-form blog-editor" id="commentForm" action="/comment/save" method="post">
                                                 <div class="layui-form-item">
-                                                    <input type="hidden" id="blogId" name="blogId" value="0"/>
+                                                    <input type="hidden" id="blogId" name="blogUuid" value="0"/>
                                                     <input type="hidden" id="context" name="context"/>
                                                     <textarea name="editorContent" lay-verify="content" id="remarkEditor" placeholder="请输入内容" class="layui-textarea layui-hide"></textarea>
                                                 </div>
@@ -220,5 +221,10 @@
     <script src="${pageContext.request.contextPath}/resources/blg/js/global.js"></script>
     <!-- 本页脚本 -->
     <script src="${pageContext.request.contextPath}/resources/blg/js/about.js"></script>
+    <script>
+        window.onload=function(){
+            document.getElementById("about").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

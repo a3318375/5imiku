@@ -10,11 +10,6 @@
 body {
     background: #eee;
     color: #444;
-    background: url(/resources/img/bg3.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 .shadow {

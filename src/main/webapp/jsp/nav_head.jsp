@@ -18,19 +18,19 @@
         <a class="blog-logo" href="/">绮梦楼</a>
         <!-- 导航菜单 -->
         <ul class="layui-nav" lay-filter="nav">
-            <li class="layui-nav-item layui-this">
+            <li class="layui-nav-item" id="home">
                 <a href="/"><i class="fa fa-home fa-fw"></i>&nbsp;网站首页</a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item" id="blog">
                 <a href="/blog"><i class="fa fa-file-text fa-fw"></i>&nbsp;文章专栏</a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item" id="music">
                 <a href="/music"><i class="fa fa-tags fa-fw"></i>&nbsp;音乐分享</a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item" id="journal">
                 <a href="/journal"><i class="fa fa-hourglass-half fa-fw"></i>&nbsp;点点滴滴</a>
             </li>
-            <li class="layui-nav-item">
+            <li class="layui-nav-item" id="about">
                 <a href="/about"><i class="fa fa-info fa-fw"></i>&nbsp;关于本站</a>
             </li>
         </ul>

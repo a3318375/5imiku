@@ -20,6 +20,7 @@
     <link href="${pageContext.request.contextPath}/resources/blg/css/global.css" rel="stylesheet" />
     <!-- 本页样式表 -->
     <link href="${pageContext.request.contextPath}/resources/blg/css/timeline.css" rel="stylesheet" />
+    <link href="${pageContext.request.contextPath}/resources/blg/css/bg7.css" rel="stylesheet" />
 </head>
 <body>
     <!-- 导航 -->
@@ -89,5 +90,10 @@
 
     <script src="${pageContext.request.contextPath}/resources/blg/js/timeLine.js"></script>
     <!-- 本页脚本 -->
+    <script>
+        window.onload=function(){
+            document.getElementById("journal").className="layui-nav-item layui-this";
+        }
+    </script>
 </body>
 </html>

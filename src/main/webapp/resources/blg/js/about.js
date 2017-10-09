@@ -69,7 +69,7 @@ layui.use(['element', 'jquery', 'form', 'layedit','flow'], function () {
         ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
             var lis = [];
             //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
-            $.get('/blog/getComments?pageNumber='+page + "&blogId=0", function(res){
+            $.get('/comment/getComments?pageNumber='+page + "&blogUuid=0", function(res){
                 //假设你的列表返回在data集合中
                 layui.each(res.list, function(index, item){
                     var code = '<li><div class="comment-parent"><img src="' + item.userIcon + '" alt="'+ item.userName +'" />' +
